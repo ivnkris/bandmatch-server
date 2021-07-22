@@ -1,0 +1,29 @@
+{
+  "name": "project-3-bandmatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivnkris/bandmatch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivnkris/bandmatch/issues"
+  },
+  "homepage": "https://github.com/ivnkris/bandmatch#readme",
+  "dependencies": {
+    "apollo-server": "^3.0.2",
+    "graphql": "^15.5.1",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
