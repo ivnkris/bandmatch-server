@@ -1,10 +1,7 @@
 const db = require("../config/connection");
 const { User, Gig } = require("../models");
 
-const bands = require("./bands.json");
-const musicians = require("./musicians.json");
-const venues = require("./venues.json");
-const gigs = require("./gigs");
+const { bands, musicians, venues, gigs } = require("./seeds");
 
 db.once("open", async () => {
   try {
