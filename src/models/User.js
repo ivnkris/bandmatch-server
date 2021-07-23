@@ -18,12 +18,12 @@ const schema = {
   genre: {
     type: String,
     enum: ["rock", "pop", "folk", "jazz", "country"],
-    required: true,
+    required: false,
   },
   experienceLevel: {
     type: String,
     enum: ["newbie", "amateur", "expert"],
-    required: true,
+    required: false,
   },
   numberOfMembers: {
     type: Number,
@@ -81,6 +81,7 @@ const schema = {
         "bass",
         "drums",
         "saxophone",
+        "band",
       ],
       required: false,
     },
@@ -113,6 +114,12 @@ const schema = {
     {
       type: Schema.Types.ObjectId,
       ref: "User",
+    },
+  ],
+  gigs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Gig",
     },
   ],
 };

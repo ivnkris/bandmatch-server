@@ -9,6 +9,11 @@ const schema = {
     type: String,
     required: true,
   },
+  genre: {
+    type: String,
+    enum: ["rock", "pop", "folk", "jazz", "country"],
+    required: true,
+  },
   fee: {
     type: Number,
     required: true,
@@ -27,7 +32,7 @@ const schema = {
   },
   time: {
     type: Date,
-    required: true,
+    required: false,
   },
 };
 
