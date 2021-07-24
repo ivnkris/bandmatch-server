@@ -30,6 +30,16 @@ const schema = {
     type: Date,
     required: true,
   },
+  venueId: {
+    type: Schema.Types.ObjectId,
+    required: false,
+  },
+  userId: [
+    {
+      type: Schema.Types.ObjectId,
+      required: false,
+    },
+  ],
 };
 
 const gigSchema = new Schema(schema);

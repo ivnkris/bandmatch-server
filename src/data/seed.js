@@ -1,11 +1,12 @@
 const db = require("../config/connection");
-const { User, Gig } = require("../models");
+const { User, Gig, Venue } = require("../models");
 
 const { bands, musicians, venues, gigs } = require("./seeds");
 
 db.once("open", async () => {
   try {
     await User.deleteMany({});
+    await Venue.deleteMany({});
     await Gig.deleteMany({});
 
     console.log("Collections deleted!!!");
@@ -22,7 +23,7 @@ db.once("open", async () => {
       };
     });
 
-    await User.insertMany(venuesToSeed);
+    await Venue.insertMany(venuesToSeed);
     console.log("Venues seeded successfully!!!");
 
     const bandsToSeed = bands.map((band, index) => {
@@ -42,6 +43,22 @@ db.once("open", async () => {
 
     await User.insertMany(musicians);
     console.log("Musicians seeded successfully!!!");
+
+    const venuesFromDb = await Venue.find({});
+    const bandsFromDb = await User.find({ type: "band" });
+
+    const updatedGigs = gigsFromDb.map((gig, index) => {
+      return {
+        ...gig,
+        venueId: venuesFromDb[index]._id,
+        userId: [bandsFromDb[index]._id],
+      };
+    });
+
+    console.log(updatedGigs);
+
+    await Gig.update({}, updatedGigs);
+    console.log("Gigs updated successfully!!!");
 
     process.exit(0);
   } catch (error) {

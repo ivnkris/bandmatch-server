@@ -98,10 +98,6 @@ const schema = {
     type: Boolean,
     required: false,
   },
-  venueName: {
-    type: String,
-    required: false,
-  },
   websiteUrl: {
     type: String,
     required: false,
