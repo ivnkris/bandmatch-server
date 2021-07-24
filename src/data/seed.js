@@ -25,8 +25,20 @@ db.once("open", async () => {
     await User.insertMany(venuesToSeed);
     console.log("Venues seeded successfully!!!");
 
-    await User.insertMany(bands);
+    const bandsToSeed = bands.map((band, index) => {
+      return {
+        ...band,
+        gigs: gigsFromDb[index]._id,
+      };
+    });
+
+    await User.insertMany(bandsToSeed);
     console.log("Bands seeded successfully!!!");
+
+    const rockBands = await User.find({ type: "band", genre: "rock" });
+
+    const rockMusician = { ...musicians[0], bandId: rockBands[0]._id };
+    musicians.splice(0, 1, rockMusician);
 
     await User.insertMany(musicians);
     console.log("Musicians seeded successfully!!!");

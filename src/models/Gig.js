@@ -26,13 +26,9 @@ const schema = {
     type: String,
     required: false,
   },
-  date: {
+  dateTime: {
     type: Date,
     required: true,
-  },
-  time: {
-    type: Date,
-    required: false,
   },
 };
 

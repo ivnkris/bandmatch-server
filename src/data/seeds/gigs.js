@@ -7,7 +7,7 @@ const gigs = [
     genre: "jazz",
     postcode: "CH65 0EU",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-02"),
+    dateTime: new Date(2021, 07, 02, 21, 30),
   },
   {
     title: "Rock Night",
@@ -17,7 +17,7 @@ const gigs = [
     genre: "rock",
     postcode: "SY23 3UF",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-05"),
+    dateTime: new Date(2021, 07, 10, 21, 30),
   },
   {
     title: "Country Night",
@@ -27,7 +27,7 @@ const gigs = [
     genre: "country",
     postcode: "EH21 7FE",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-10"),
+    dateTime: new Date(2021, 07, 15, 21, 30),
   },
   {
     title: "Pop Night",
@@ -37,7 +37,7 @@ const gigs = [
     genre: "pop",
     postcode: "SM2 6ES",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-13"),
+    dateTime: new Date(2021, 07, 21, 21, 30),
   },
   {
     title: "Folk Night",
@@ -47,7 +47,7 @@ const gigs = [
     genre: "folk",
     postcode: "NR12 7AA",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-15"),
+    dateTime: new Date(2021, 07, 01, 21, 30),
   },
   {
     title: "Jazz Night",
@@ -57,7 +57,7 @@ const gigs = [
     genre: "jazz",
     postcode: "CH65 0EU",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-02"),
+    dateTime: new Date(2021, 07, 02, 21, 30),
   },
   {
     title: "Rock Night",
@@ -67,7 +67,7 @@ const gigs = [
     genre: "rock",
     postcode: "SY23 3UF",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-05"),
+    dateTime: new Date(2021, 07, 05, 21, 30),
   },
   {
     title: "Country Night",
@@ -77,7 +77,7 @@ const gigs = [
     genre: "country",
     postcode: "EH21 7FE",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-10"),
+    dateTime: new Date(2021, 07, 10, 21, 30),
   },
   {
     title: "Pop Night",
@@ -87,7 +87,7 @@ const gigs = [
     genre: "pop",
     postcode: "SM2 6ES",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-13"),
+    dateTime: new Date(2021, 07, 13, 21, 30),
   },
   {
     title: "Folk Night",
@@ -97,7 +97,7 @@ const gigs = [
     genre: "folk",
     postcode: "NR12 7AA",
     websiteUrl: "www.google.com",
-    date: new Date("2021-08-15"),
+    dateTime: new Date(2021, 07, 15, 21, 30),
   },
 ];
 
