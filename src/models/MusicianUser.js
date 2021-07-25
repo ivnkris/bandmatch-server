@@ -1,9 +1,24 @@
 const { Schema, model } = require("mongoose");
 
 const schema = {
-  type: {
+  email: {
     type: String,
-    enum: ["musician", "band", "venue"],
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  firstName: {
+    type: String,
+    required: false,
+  },
+  lastName: {
+    type: String,
+    required: false,
+  },
+  description: {
+    type: String,
     required: true,
   },
   isPremium: {
@@ -25,10 +40,6 @@ const schema = {
     enum: ["newbie", "amateur", "expert"],
     required: false,
   },
-  numberOfMembers: {
-    type: Number,
-    required: false,
-  },
   instrument: [
     {
       type: String,
@@ -44,27 +55,15 @@ const schema = {
       required: false,
     },
   ],
-  photoUrl: {
+  image: {
     type: String,
     required: false,
     default:
       "https://images.unsplash.com/photo-1501612780327-45045538702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
   },
-  bandName: {
+  websiteUrl: {
     type: String,
     required: false,
-  },
-  firstName: {
-    type: String,
-    required: false,
-  },
-  lastName: {
-    type: String,
-    required: false,
-  },
-  description: {
-    type: String,
-    required: true,
   },
   soundCloudUrl: {
     type: String,
@@ -74,22 +73,18 @@ const schema = {
     {
       type: String,
       enum: [
-        "guitar",
-        "piano",
-        "keyboard",
+        "guitarist",
+        "pianist",
+        "keyboardist",
         "singer",
-        "bass",
-        "drums",
-        "saxophone",
+        "bassist",
+        "drummer",
+        "saxophonist",
         "band",
       ],
       required: false,
     },
   ],
-  openToMembers: {
-    type: Boolean,
-    required: false,
-  },
   openToCollaboration: {
     type: Boolean,
     required: false,
@@ -98,20 +93,16 @@ const schema = {
     type: Boolean,
     required: false,
   },
-  websiteUrl: {
-    type: String,
-    required: false,
-  },
-  bandId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
   favourites: [
     {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
   ],
+  bandId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   gigs: [
     {
       type: Schema.Types.ObjectId,
@@ -122,6 +113,6 @@ const schema = {
 
 const userSchema = new Schema(schema);
 
-const User = model("User", userSchema);
+const MusicianUser = model("MusicianUser", userSchema);
 
-module.exports = User;
+module.exports = MusicianUser;

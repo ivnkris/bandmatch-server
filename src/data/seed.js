@@ -1,11 +1,13 @@
 const db = require("../config/connection");
-const { User, Gig, Venue } = require("../models");
+const { MusicianUser, Band, VenueUser, Venue, Gig } = require("../models");
 
-const { bands, musicians, venues, gigs } = require("./seeds");
+const { musicianUsers, bands, venueUsers, venues, gigs } = require("./seeds");
 
 db.once("open", async () => {
   try {
-    await User.deleteMany({});
+    await MusicianUser.deleteMany({});
+    await Band.deleteMany({});
+    await VenueUser.deleteMany({});
     await Venue.deleteMany({});
     await Gig.deleteMany({});
 
@@ -26,39 +28,32 @@ db.once("open", async () => {
     await Venue.insertMany(venuesToSeed);
     console.log("Venues seeded successfully!!!");
 
-    const bandsToSeed = bands.map((band, index) => {
+    const venuesFromDb = await Venue.find({});
+
+    const venueUsersToSeed = venueUsers.map((venueUser, index) => {
       return {
-        ...band,
-        gigs: gigsFromDb[index]._id,
+        ...venueUser,
+        venue: [venuesFromDb[index]._id, venuesFromDb[index + 5]._id],
       };
     });
 
-    await User.insertMany(bandsToSeed);
+    await VenueUser.insertMany(venueUsersToSeed);
+    console.log("Venue Users seeded successfully!!!");
+
+    await Band.insertMany(bands);
     console.log("Bands seeded successfully!!!");
 
-    const rockBands = await User.find({ type: "band", genre: "rock" });
+    const bandsFromDb = await Band.find({});
 
-    const rockMusician = { ...musicians[0], bandId: rockBands[0]._id };
-    musicians.splice(0, 1, rockMusician);
-
-    await User.insertMany(musicians);
-    console.log("Musicians seeded successfully!!!");
-
-    const venuesFromDb = await Venue.find({});
-    const bandsFromDb = await User.find({ type: "band" });
-
-    const updatedGigs = gigsFromDb.map((gig, index) => {
+    const musiciansToSeed = musicianUsers.map((musician, index) => {
       return {
-        ...gig,
-        venueId: venuesFromDb[index]._id,
-        userId: [bandsFromDb[index]._id],
+        ...musician,
+        bandId: bandsFromDb[index]._id,
       };
     });
 
-    console.log(updatedGigs);
-
-    await Gig.update({}, updatedGigs);
-    console.log("Gigs updated successfully!!!");
+    await MusicianUser.insertMany(musiciansToSeed);
+    console.log("Musicians seeded successfully!!!");
 
     process.exit(0);
   } catch (error) {
