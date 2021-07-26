@@ -13,11 +13,12 @@ const schema = {
     type: String,
     required: true,
   },
-  genre: {
-    type: String,
-    enum: ["rock", "pop", "folk", "jazz", "country"],
-    required: true,
-  },
+  genre: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Genre",
+    },
+  ],
   experienceLevel: {
     type: String,
     enum: ["newbie", "amateur", "expert"],
@@ -29,17 +30,8 @@ const schema = {
   },
   instruments: [
     {
-      type: String,
-      enum: [
-        "guitar",
-        "piano",
-        "keyboard",
-        "vocalist",
-        "bass",
-        "drums",
-        "saxophone",
-      ],
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "Instrument",
     },
   ],
   soundCloudUrl: {
@@ -62,17 +54,8 @@ const schema = {
   },
   lookingFor: [
     {
-      type: String,
-      enum: [
-        "guitarist",
-        "pianist",
-        "keyboardist",
-        "vocalist",
-        "bassist",
-        "drummer",
-        "saxophonist",
-      ],
-      required: false,
+      type: Schema.Types.ObjectId,
+      ref: "Instrument",
     },
   ],
   openToCollaboration: {

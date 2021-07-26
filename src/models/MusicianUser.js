@@ -30,32 +30,24 @@ const schema = {
     type: String,
     required: true,
   },
-  genre: {
-    type: String,
-    enum: ["rock", "pop", "folk", "jazz", "country"],
-    required: false,
-  },
+  genre: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Genre",
+    },
+  ],
   experienceLevel: {
     type: String,
     enum: ["newbie", "amateur", "expert"],
     required: false,
   },
-  instrument: [
+  instruments: [
     {
-      type: String,
-      enum: [
-        "guitar",
-        "piano",
-        "keyboard",
-        "singer",
-        "bass",
-        "drums",
-        "saxophone",
-      ],
-      required: false,
+      type: Schema.Types.ObjectId,
+      ref: "Instrument",
     },
   ],
-  image: {
+  imageUrl: {
     type: String,
     required: false,
     default:
@@ -71,18 +63,8 @@ const schema = {
   },
   lookingFor: [
     {
-      type: String,
-      enum: [
-        "guitarist",
-        "pianist",
-        "keyboardist",
-        "singer",
-        "bassist",
-        "drummer",
-        "saxophonist",
-        "band",
-      ],
-      required: false,
+      type: Schema.Types.ObjectId,
+      ref: "Instrument",
     },
   ],
   openToCollaboration: {
@@ -96,12 +78,10 @@ const schema = {
   favourites: [
     {
       type: Schema.Types.ObjectId,
-      ref: "User",
     },
   ],
   bandId: {
     type: Schema.Types.ObjectId,
-    ref: "User",
   },
   gigs: [
     {
