@@ -72,25 +72,33 @@ db.once("open", async () => {
       return Math.floor(Math.random() * number);
     };
 
-    const bandsToSeed = bands.map((band, index) => {
+    const bandsToSeed = bands.map((band) => {
       const number = band.numberOfMembers;
       return {
         ...band,
-        genre: [genresFromDb[randomIndex(genresFromDb.length)]],
-        instruments: [instrumentsFromDb[randomIndex(instrumentsFromDb.length)]],
-        lookingFor: [instrumentsFromDb[randomIndex(instrumentsFromDb.length)]],
+        genre: [genresFromDb[randomIndex(genresFromDb.length)]._id],
+        instruments: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        lookingFor: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
       };
     });
 
     await Band.insertMany(bandsToSeed);
     console.log("Bands seeded successfully!!!");
 
-    const musiciansToSeed = musicianUsers.map((musician, index) => {
+    const musiciansToSeed = musicianUsers.map((musician) => {
       return {
         ...musician,
-        genre: [genresFromDb[randomIndex(genresFromDb.length)]],
-        instruments: [instrumentsFromDb[randomIndex(instrumentsFromDb.length)]],
-        lookingFor: [instrumentsFromDb[randomIndex(instrumentsFromDb.length)]],
+        genre: [genresFromDb[randomIndex(genresFromDb.length)]._id],
+        instruments: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        lookingFor: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
       };
     });
 

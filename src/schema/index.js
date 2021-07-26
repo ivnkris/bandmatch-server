@@ -1,48 +1,69 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
-  type User {
-    id: ID!
-    type: String!
-    isPremium: Boolean!
-    postcode: String!
-    genre: String
-    experienceLevel: String
-    numberOfMembers: Int
-    instrument: [String]
-    photoUrl: String
-    bandName: String
-    firstName: String
-    lastName: String
-    description: String
-    soundCloudUrl: String
-    lookingFor: [String]
-    openToMembers: Boolean
-    openToCollaboration: Boolean
-    openToJoiningBand: Boolean
-    venueName: String
-    websiteUrl: String
-    bandId: ID
-    favourites: [ID]
-    gigs: [ID]
+  type Genre {
+    _id: ID!
+    name: String!
   }
 
-  type Gig {
+  type Instrument {
+    _id: ID!
+    name: String!
+    role: String!
+  }
+
+  type MusicianUser {
     id: ID!
-    title: String!
+    firstName: String!
+    lastName: String!
     description: String!
-    genre: String!
-    fee: Int!
-    postcode: String!
+    genre: [Genre]
+    experienceLevel: String!
+    instruments: [Instrument]
+    imageUrl: String!
     websiteUrl: String
-    dateTime: String!
+    soundCloudUrl: String
+    lookingFor: [Instrument]
+    openToCollaboration: Boolean
+    openToJoiningBand: Boolean
+    band: ID
+    bandName: String
+    bandImage: String
+  }
+
+  type Band {
+    id: ID!
+    name: String!
+    description: String!
+    location: String!
+    genre: [Genre]
+    experienceLevel: String!
+    numberOfMembers: Int!
+    instruments: [Instrument!]
+    imageUrl: String!
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [Instrument]
+    openToCollaboration: Boolean
+    openToMembers: Boolean
+    members: [MusicianUser]
+  }
+
+  type Assemble {
+    musicians: [MusicianUser]
+    bands: [Band]
+  }
+
+  type Collaborate {
+    musicians: [MusicianUser]
+    bands: [Band]
   }
 
   type Query {
-    user(id: ID!): User
-    users(sortBy: String, top: Int, filters: [String]): [User]
-    gigs(sortBy: String, top: Int, filters: [String]): [Gig]
-    gig(id: ID!): Gig
+    musicianUser(id: ID!): MusicianUser
+    band(id: ID!): Band
+    assemble(sortBy: String, top: Int, filters: [String]): [Assemble]
+    collaborate(sortBy: String, top: Int, filters: [String]): [Collaborate]
   }
 `;
 

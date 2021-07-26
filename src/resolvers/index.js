@@ -1,14 +1,14 @@
-const user = require("./user");
-const users = require("./users");
-const gig = require("./gig");
-const gigs = require("./gigs");
+const musicianUser = require("./musicianUser");
+const band = require("./band");
+const assemble = require("./assemble");
+const collaborate = require("./collaborate");
 
 const resolvers = {
   Query: {
-    user,
-    users,
-    gig,
-    gigs,
+    musicianUser,
+    band,
+    assemble,
+    collaborate,
   },
 };
 
