@@ -2,12 +2,12 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Genre {
-    _id: ID!
+    id: ID!
     name: String!
   }
 
   type Instrument {
-    _id: ID!
+    id: ID!
     name: String!
     role: String!
   }
@@ -39,7 +39,7 @@ const typeDefs = gql`
     genre: [Genre]
     experienceLevel: String!
     numberOfMembers: Int!
-    instruments: [Instrument!]
+    instruments: [Instrument]
     imageUrl: String!
     websiteUrl: String
     soundCloudUrl: String
