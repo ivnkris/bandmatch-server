@@ -1,46 +1,108 @@
 const db = require("../config/connection");
-const { User, Gig } = require("../models");
+const {
+  MusicianUser,
+  Band,
+  VenueUser,
+  Venue,
+  Gig,
+  Instrument,
+  Genre,
+} = require("../models");
 
-const { bands, musicians, venues, gigs } = require("./seeds");
+const {
+  musicianUsers,
+  bands,
+  venueUsers,
+  venues,
+  gigs,
+  instruments,
+  genres,
+} = require("./seeds");
 
 db.once("open", async () => {
   try {
-    await User.deleteMany({});
-    await Gig.deleteMany({});
+    await MusicianUser.deleteMany({});
+    await Band.deleteMany({});
+    await Instrument.deleteMany({});
+    await Genre.deleteMany({});
+
+    // await VenueUser.deleteMany({});
+    // await Venue.deleteMany({});
+    // await Gig.deleteMany({});
 
     console.log("Collections deleted!!!");
 
-    await Gig.insertMany(gigs);
-    console.log("Gigs seeded successfully!!!");
+    // await Gig.insertMany(gigs);
+    // console.log("Gigs seeded successfully!!!");
 
-    const gigsFromDb = await Gig.find({});
+    // const gigsFromDb = await Gig.find({});
 
-    const venuesToSeed = venues.map((venue, index) => {
-      return {
-        ...venue,
-        gigs: gigsFromDb[index]._id,
-      };
-    });
+    // const venuesToSeed = venues.map((venue, index) => {
+    //   return {
+    //     ...venue,
+    //     gigs: gigsFromDb[index]._id,
+    //   };
+    // });
 
-    await User.insertMany(venuesToSeed);
-    console.log("Venues seeded successfully!!!");
+    // await Venue.insertMany(venuesToSeed);
+    // console.log("Venues seeded successfully!!!");
 
-    const bandsToSeed = bands.map((band, index) => {
+    // const venuesFromDb = await Venue.find({});
+
+    // const venueUsersToSeed = venueUsers.map((venueUser, index) => {
+    //   return {
+    //     ...venueUser,
+    //     venue: [venuesFromDb[index]._id, venuesFromDb[index + 5]._id],
+    //   };
+    // });
+
+    // await VenueUser.insertMany(venueUsersToSeed);
+    // console.log("Venue Users seeded successfully!!!");
+
+    await Genre.insertMany(genres);
+    console.log("Genres seeded successfully!!!");
+
+    await Instrument.insertMany(instruments);
+    console.log("Instruments seeded successfully!!!");
+
+    const genresFromDb = await Genre.find({});
+    const instrumentsFromDb = await Instrument.find({});
+
+    const randomIndex = (number) => {
+      return Math.floor(Math.random() * number);
+    };
+
+    const bandsToSeed = bands.map((band) => {
+      const number = band.numberOfMembers;
       return {
         ...band,
-        gigs: gigsFromDb[index]._id,
+        genre: [genresFromDb[randomIndex(genresFromDb.length)]._id],
+        instruments: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        lookingFor: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
       };
     });
 
-    await User.insertMany(bandsToSeed);
+    await Band.insertMany(bandsToSeed);
     console.log("Bands seeded successfully!!!");
 
-    const rockBands = await User.find({ type: "band", genre: "rock" });
+    const musiciansToSeed = musicianUsers.map((musician) => {
+      return {
+        ...musician,
+        genre: [genresFromDb[randomIndex(genresFromDb.length)]._id],
+        instruments: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        lookingFor: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+      };
+    });
 
-    const rockMusician = { ...musicians[0], bandId: rockBands[0]._id };
-    musicians.splice(0, 1, rockMusician);
-
-    await User.insertMany(musicians);
+    await MusicianUser.insertMany(musiciansToSeed);
     console.log("Musicians seeded successfully!!!");
 
     process.exit(0);
