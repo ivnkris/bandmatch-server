@@ -65,6 +65,35 @@ const typeDefs = gql`
     assemble(sortBy: String, top: Int, filters: [String]): [Assemble]
     collaborate(sortBy: String, top: Int, filters: [String]): [Collaborate]
   }
+
+  input LoginInput {
+    email: String!
+    password: String!
+  }
+
+  input SignupInput {
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+    description: String!
+    isPremium: Boolean!
+    postcode: String
+    genre: [Genre]
+    experienceLevel: String!
+    instruments: [Instrument]
+    imageUrl: String
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [Instrument]
+    openToCollaboration: Boolean!
+    openToJoiningBand: Boolean!
+  }
+
+  type Mutation {
+    login(input: LoginInput): Auth!
+    signup(input: SignupInput): Auth!
+  }
 `;
 
 module.exports = typeDefs;

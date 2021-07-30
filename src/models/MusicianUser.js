@@ -11,11 +11,11 @@ const schema = {
   },
   firstName: {
     type: String,
-    required: false,
+    required: true,
   },
   lastName: {
     type: String,
-    required: false,
+    required: true,
   },
   description: {
     type: String,
@@ -28,7 +28,7 @@ const schema = {
   },
   postcode: {
     type: String,
-    required: true,
+    required: false,
   },
   genre: [
     {
@@ -39,7 +39,7 @@ const schema = {
   experienceLevel: {
     type: String,
     enum: ["newbie", "amateur", "expert"],
-    required: false,
+    required: true,
   },
   instruments: [
     {
@@ -69,11 +69,11 @@ const schema = {
   ],
   openToCollaboration: {
     type: Boolean,
-    required: false,
+    required: true,
   },
   openToJoiningBand: {
     type: Boolean,
-    required: false,
+    required: true,
   },
   favourites: [
     {
