@@ -24,8 +24,8 @@ const typeDefs = gql`
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [Instrument]
-    openToCollaboration: Boolean
-    openToJoiningBand: Boolean
+    openToCollaboration: Boolean!
+    openToJoiningBand: Boolean!
     band: ID
     bandName: String
     bandImage: String
@@ -88,6 +88,11 @@ const typeDefs = gql`
     lookingFor: [Instrument]
     openToCollaboration: Boolean!
     openToJoiningBand: Boolean!
+  }
+
+  type Auth {
+    token: ID!
+    user: MusicianUser!
   }
 
   type Mutation {
