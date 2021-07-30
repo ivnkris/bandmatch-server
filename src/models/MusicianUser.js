@@ -1,9 +1,12 @@
 const { Schema, model } = require("mongoose");
 
+const { hashPassword, validatePassword } = require("../utils/password");
+
 const schema = {
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -92,6 +95,10 @@ const schema = {
 };
 
 const userSchema = new Schema(schema);
+
+userSchema.pre("save", hashPassword);
+
+userSchema.methods.validatePassword = validatePassword;
 
 const MusicianUser = model("MusicianUser", userSchema);
 
