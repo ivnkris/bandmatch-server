@@ -2,6 +2,8 @@ const musicianUser = require("./musicianUser");
 const band = require("./band");
 const assemble = require("./assemble");
 const collaborate = require("./collaborate");
+const login = require("./login");
+const signup = require("./signup");
 
 const resolvers = {
   Query: {
@@ -9,6 +11,10 @@ const resolvers = {
     band,
     assemble,
     collaborate,
+  },
+  Mutation: {
+    login,
+    signup,
   },
 };
 

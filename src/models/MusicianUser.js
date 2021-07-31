@@ -1,9 +1,12 @@
 const { Schema, model } = require("mongoose");
 
+const { hashPassword, validatePassword } = require("../utils/password");
+
 const schema = {
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -11,11 +14,11 @@ const schema = {
   },
   firstName: {
     type: String,
-    required: false,
+    required: true,
   },
   lastName: {
     type: String,
-    required: false,
+    required: true,
   },
   description: {
     type: String,
@@ -28,7 +31,7 @@ const schema = {
   },
   postcode: {
     type: String,
-    required: true,
+    required: false,
   },
   genre: [
     {
@@ -39,7 +42,7 @@ const schema = {
   experienceLevel: {
     type: String,
     enum: ["newbie", "amateur", "expert"],
-    required: false,
+    required: true,
   },
   instruments: [
     {
@@ -69,11 +72,11 @@ const schema = {
   ],
   openToCollaboration: {
     type: Boolean,
-    required: false,
+    required: true,
   },
   openToJoiningBand: {
     type: Boolean,
-    required: false,
+    required: true,
   },
   favourites: [
     {
@@ -92,6 +95,10 @@ const schema = {
 };
 
 const userSchema = new Schema(schema);
+
+userSchema.pre("save", hashPassword);
+
+userSchema.methods.validatePassword = validatePassword;
 
 const MusicianUser = model("MusicianUser", userSchema);
 

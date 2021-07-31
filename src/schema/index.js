@@ -24,8 +24,8 @@ const typeDefs = gql`
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [Instrument]
-    openToCollaboration: Boolean
-    openToJoiningBand: Boolean
+    openToCollaboration: Boolean!
+    openToJoiningBand: Boolean!
     band: ID
     bandName: String
     bandImage: String
@@ -64,6 +64,40 @@ const typeDefs = gql`
     band(id: ID!): Band
     assemble(sortBy: String, top: Int, filters: [String]): [Assemble]
     collaborate(sortBy: String, top: Int, filters: [String]): [Collaborate]
+  }
+
+  input LoginInput {
+    email: String!
+    password: String!
+  }
+
+  input SignupInput {
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+    description: String!
+    isPremium: Boolean!
+    postcode: String
+    genre: [ID]
+    experienceLevel: String!
+    instruments: [ID]
+    imageUrl: String
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [ID]
+    openToCollaboration: Boolean!
+    openToJoiningBand: Boolean!
+  }
+
+  type Auth {
+    token: ID!
+    user: MusicianUser!
+  }
+
+  type Mutation {
+    login(input: LoginInput): Auth!
+    signup(input: SignupInput): Auth!
   }
 `;
 
