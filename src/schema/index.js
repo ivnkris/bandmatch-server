@@ -79,13 +79,14 @@ const typeDefs = gql`
     description: String!
     isPremium: Boolean!
     postcode: String
-    genre: [Genre]
+    # TODO: graphQL throws a validation error Error: The type of SignupInput.genre must be Input Type but got: [Genre].
+    # genre: [Genre]
     experienceLevel: String!
-    instruments: [Instrument]
+    # instruments: [Instrument]
     imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
-    lookingFor: [Instrument]
+    # lookingFor: [Instrument]
     openToCollaboration: Boolean!
     openToJoiningBand: Boolean!
   }
