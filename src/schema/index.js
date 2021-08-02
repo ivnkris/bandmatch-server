@@ -96,8 +96,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(input: LoginInput): Auth!
-    signup(input: SignupInput): Auth!
+    login(input: LoginInput!): Auth!
+    signup(input: SignupInput!): Auth!
   }
 `;
 

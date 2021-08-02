@@ -102,7 +102,12 @@ db.once("open", async () => {
       };
     });
 
-    await MusicianUser.insertMany(musiciansToSeed);
+    const userPromises = musiciansToSeed.map((user) => {
+      return MusicianUser.create(user);
+    });
+
+    await Promise.all(userPromises);
+
     console.log("Musicians seeded successfully!!!");
 
     process.exit(0);
