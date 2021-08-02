@@ -1,3 +1,5 @@
+const { AuthenticationError } = require("apollo-server");
+
 const { MusicianUser } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
