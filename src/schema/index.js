@@ -63,7 +63,7 @@ const typeDefs = gql`
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
     assemble(sortBy: String, top: Int, filters: [String]): Assemble
-    collaborate(sortBy: String, top: Int, filters: [String]): [Collaborate]
+    collaborate(sortBy: String, top: Int, filters: [String]): Collaborate
   }
 
   input LoginInput {
