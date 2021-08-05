@@ -62,8 +62,8 @@ const typeDefs = gql`
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
-    assemble(sortBy: String, top: Int, filters: [String]): [Assemble]
-    collaborate(sortBy: String, top: Int, filters: [String]): [Collaborate]
+    assemble(sortBy: String, top: Int, filters: [String]): Assemble
+    collaborate(sortBy: String, top: Int, filters: [String]): Collaborate
   }
 
   input LoginInput {
