@@ -1,13 +1,20 @@
+const mongoose = require("mongoose");
+
 const { MusicianUser, Band } = require("../models");
 
 const constructFilters = (filters) => {
   const array = Object.entries(filters);
 
   const filterObject = array.reduce((acc, each) => {
-    if (each[0] !== "userType") {
+    if (each[0] === "experienceLevel") {
       return {
         ...acc,
         [each[0]]: { $in: each[1] },
+      };
+    } else if (each[0] !== "userType") {
+      return {
+        ...acc,
+        [each[0]]: { $in: mongoose.Types.ObjectId(each[1]) },
       };
     } else {
       return acc;
@@ -36,6 +43,7 @@ const getMusicians = async (filters) => {
 };
 
 const assemble = async (_, { filters }) => {
+  console.log(filters.instruments);
   if (filters) {
     let cleansedFilters = {};
     Object.keys(filters).forEach((filterKey) => {
@@ -43,8 +51,6 @@ const assemble = async (_, { filters }) => {
         cleansedFilters[filterKey] = filters[filterKey];
       }
     });
-
-    console.log(cleansedFilters);
 
     if (!cleansedFilters.userType || cleansedFilters.userType.length === 2) {
       const bands = getBands(cleansedFilters);

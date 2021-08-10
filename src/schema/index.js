@@ -61,9 +61,9 @@ const typeDefs = gql`
   }
 
   input Filter {
-    genre: [String]
-    instruments: [String]
-    lookingFor: [String]
+    genre: [ID]
+    instruments: [ID]
+    lookingFor: [ID]
     userType: [String]
     experienceLevel: [String]
   }
