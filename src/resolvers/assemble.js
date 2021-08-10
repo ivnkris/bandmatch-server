@@ -4,7 +4,7 @@ const constructFilters = (filters) => {
   const array = Object.entries(filters);
 
   const filterObject = array.reduce((acc, each) => {
-    if (each[0] !== "type") {
+    if (each[0] !== "userType") {
       return {
         ...acc,
         [each[0]]: { $in: each[1] },
@@ -36,21 +36,37 @@ const getMusicians = async (filters) => {
 };
 
 const assemble = async (_, { filters }) => {
-  if (!filters.type || filters.type.length === 2) {
-    const bands = getBands(filters);
-    const musicians = getMusicians(filters);
+  if (filters) {
+    let cleansedFilters = {};
+    Object.keys(filters).forEach((filterKey) => {
+      if (filters[filterKey].length) {
+        cleansedFilters[filterKey] = filters[filterKey];
+      }
+    });
+
+    console.log(cleansedFilters);
+
+    if (!cleansedFilters.userType || cleansedFilters.userType.length === 2) {
+      const bands = getBands(cleansedFilters);
+      const musicians = getMusicians(cleansedFilters);
+
+      return { musicians, bands };
+    }
+
+    if (cleansedFilters.userType[0] === "band") {
+      const bands = await getBands(cleansedFilters);
+      return { bands, musicians: [] };
+    }
+
+    if (cleansedFilters.userType[0] === "musician") {
+      const musicians = await getMusicians(cleansedFilters);
+      return { musicians, bands: [] };
+    }
+  } else {
+    const bands = getBands(cleansedFilters);
+    const musicians = getMusicians(cleansedFilters);
 
     return { musicians, bands };
-  }
-
-  if (filters.type[0] === "band") {
-    const bands = await getBands(filters);
-    return { bands };
-  }
-
-  if (filters.type[0] === "musician") {
-    const musicians = await getMusicians(filters);
-    return { musicians };
   }
 };
 

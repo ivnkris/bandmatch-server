@@ -17,6 +17,7 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     description: String!
+    postcode: String!
     genre: [Genre]
     experienceLevel: String!
     instruments: [Instrument]
@@ -60,11 +61,11 @@ const typeDefs = gql`
   }
 
   input Filter {
-    genre: [ID]
-    instruments: [ID]
-    lookingFor: [ID]
-    type: [String]
-    experienceLevel: String
+    genre: [String]
+    instruments: [String]
+    lookingFor: [String]
+    userType: [String]
+    experienceLevel: [String]
   }
 
   type Query {
