@@ -63,7 +63,7 @@ const typeDefs = gql`
     genre: [ID]
     instruments: [ID]
     lookingFor: [ID]
-    type: String
+    type: [String]
     experienceLevel: String
   }
 
