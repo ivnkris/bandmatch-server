@@ -17,6 +17,7 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     description: String!
+    postcode: String!
     genre: [Genre]
     experienceLevel: String!
     instruments: [Instrument]
@@ -59,11 +60,19 @@ const typeDefs = gql`
     bands: [Band]
   }
 
+  input Filter {
+    genre: [ID]
+    instruments: [ID]
+    lookingFor: [ID]
+    userType: [String]
+    experienceLevel: [String]
+  }
+
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
-    assemble(sortBy: String, top: Int, filters: [String]): Assemble
-    collaborate(sortBy: String, top: Int, filters: [String]): Collaborate
+    assemble(sortBy: String, top: Int, filters: Filter): Assemble
+    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
   }
 
   input LoginInput {

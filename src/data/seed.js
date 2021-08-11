@@ -76,8 +76,14 @@ db.once("open", async () => {
       const number = band.numberOfMembers;
       return {
         ...band,
-        genre: [genresFromDb[randomIndex(genresFromDb.length)]._id],
+        genre: [
+          genresFromDb[randomIndex(genresFromDb.length)]._id,
+          genresFromDb[randomIndex(genresFromDb.length)]._id,
+        ],
         instruments: [
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+          instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
           instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
         ],
         lookingFor: [
