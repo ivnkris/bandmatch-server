@@ -14,7 +14,7 @@ const constructFilters = (filters) => {
     } else if (each[0] !== "userType") {
       return {
         ...acc,
-        [each[0]]: { $in: mongoose.Types.ObjectId(each[1]) },
+        [each[0]]: { $in: each[1] },
       };
     } else {
       return acc;
@@ -25,6 +25,8 @@ const constructFilters = (filters) => {
 };
 
 const getBands = async (filters) => {
+  const filterobj = constructFilters(filters || {});
+
   const bands = await Band.find(constructFilters(filters || {}))
     .populate("genre")
     .populate("instruments")
@@ -43,7 +45,6 @@ const getMusicians = async (filters) => {
 };
 
 const assemble = async (_, { filters }) => {
-  console.log(filters.instruments);
   if (filters) {
     let cleansedFilters = {};
     Object.keys(filters).forEach((filterKey) => {
@@ -53,8 +54,8 @@ const assemble = async (_, { filters }) => {
     });
 
     if (!cleansedFilters.userType || cleansedFilters.userType.length === 2) {
-      const bands = getBands(cleansedFilters);
-      const musicians = getMusicians(cleansedFilters);
+      const bands = await getBands(cleansedFilters);
+      const musicians = await getMusicians(cleansedFilters);
 
       return { musicians, bands };
     }
@@ -68,9 +69,10 @@ const assemble = async (_, { filters }) => {
       const musicians = await getMusicians(cleansedFilters);
       return { musicians, bands: [] };
     }
+    return;
   } else {
-    const bands = getBands(cleansedFilters);
-    const musicians = getMusicians(cleansedFilters);
+    const bands = await getBands(cleansedFilters);
+    const musicians = await getMusicians(cleansedFilters);
 
     return { musicians, bands };
   }
