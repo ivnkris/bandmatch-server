@@ -25,8 +25,6 @@ const constructFilters = (filters) => {
 };
 
 const getBands = async (filters) => {
-  const filterobj = constructFilters(filters || {});
-
   const bands = await Band.find(constructFilters(filters || {}))
     .populate("genre")
     .populate("instruments")
