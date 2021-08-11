@@ -2,8 +2,8 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Genre {
-    id: ID!
-    name: String!
+    id: ID
+    name: String
   }
 
   type Instrument {
@@ -71,6 +71,8 @@ const typeDefs = gql`
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
+    genres: [Genre]
+    instruments: [Instrument]
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
   }
