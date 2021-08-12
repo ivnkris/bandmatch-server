@@ -75,10 +75,9 @@ const assemble = async (_, { filters }) => {
 			const musicians = await getMusicians(cleansedFilters);
 			return { musicians, bands: [] };
 		}
-		return;
 	} else {
-		const bands = await getBands(cleansedFilters);
-		const musicians = await getMusicians(cleansedFilters);
+		const bands = await getBands();
+		const musicians = await getMusicians();
 
 		return { musicians, bands };
 	}
