@@ -77,8 +77,8 @@ const collaborate = async (_, { filters }) => {
 		}
 		return;
 	} else {
-		const bands = await getBands(cleansedFilters);
-		const musicians = await getMusicians(cleansedFilters);
+		const bands = await getBands();
+		const musicians = await getMusicians();
 
 		return { musicians, bands };
 	}
