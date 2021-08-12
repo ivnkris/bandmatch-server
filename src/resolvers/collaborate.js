@@ -25,9 +25,11 @@ const constructFilters = (filters) => {
 };
 
 const getBands = async (filters) => {
-	const bands = await Band.find(
-		constructFilters(filters || {}) && { openToCollaboration: true }
-	)
+	const constructedFilters = constructFilters(filters || {});
+
+	const searchFilters = { ...constructedFilters, openToCollaboration: true };
+
+	const bands = await Band.find(searchFilters)
 		.populate("genre")
 		.populate("instruments")
 		.populate("lookingFor");
@@ -36,9 +38,11 @@ const getBands = async (filters) => {
 };
 
 const getMusicians = async (filters) => {
-	const musicians = await MusicianUser.find(
-		constructFilters(filters || {}) && { openToCollaboration: true }
-	)
+	const constructedFilters = constructFilters(filters || {});
+
+	const searchFilters = { ...constructedFilters, openToCollaboration: true };
+
+	const musicians = await MusicianUser.find(searchFilters)
 		.populate("genre")
 		.populate("instruments")
 		.populate("lookingFor");
