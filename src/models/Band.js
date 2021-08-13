@@ -21,7 +21,7 @@ const schema = {
   ],
   experienceLevel: {
     type: String,
-    enum: ["newbie", "amateur", "expert"],
+    enum: ["newbie", "midway", "expert"],
     required: true,
   },
   numberOfMembers: {
