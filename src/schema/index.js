@@ -101,6 +101,23 @@ const typeDefs = gql`
     openToJoiningBand: Boolean!
   }
 
+  input BandInput {
+    name: String!
+    description: String!
+    location: String!
+    genre: [ID]
+    experienceLevel: String!
+    numberOfMembers: Int!
+    instruments: [ID]
+    imageUrl: String!
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [ID]
+    openToCollaboration: Boolean
+    openToMembers: Boolean
+    members: [ID]
+  }
+
   type Auth {
     token: ID!
     user: MusicianUser!
@@ -109,6 +126,7 @@ const typeDefs = gql`
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
+    createBand(input: BandInput!): Band!
   }
 `;
 

@@ -6,6 +6,7 @@ const genres = require("./genres");
 const instruments = require("./instruments");
 const login = require("./login");
 const signup = require("./signup");
+const createBand = require("./createBand");
 
 const resolvers = {
   Query: {
@@ -19,6 +20,7 @@ const resolvers = {
   Mutation: {
     login,
     signup,
+    createBand,
   },
 };
 
