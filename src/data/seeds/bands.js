@@ -46,7 +46,7 @@ const bands = [
   },
   {
     location: "London",
-    experienceLevel: "amateur",
+    experienceLevel: "midway",
     numberOfMembers: 4,
     imageUrl:
       "https://images.unsplash.com/photo-1549834125-80f9dda633c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
@@ -91,7 +91,7 @@ const bands = [
   },
   {
     location: "Cardiff",
-    experienceLevel: "amateur",
+    experienceLevel: "midway",
     numberOfMembers: 2,
     imageUrl:
       "https://images.unsplash.com/photo-1483393458019-411bc6bd104e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
