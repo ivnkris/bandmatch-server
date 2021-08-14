@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const queryDistance = async (origins, destinations) => {
+const queryDistance = async function (origins, destinations) {
 	const API_KEY = "AIzaSyCBKF4t5DY9nczpeG3uxAAHxU1NcNlynh4";
 
 	let formattedDestinations = [];
@@ -31,4 +31,4 @@ const queryDistance = async (origins, destinations) => {
 	return locationData;
 };
 
-module.exports = { queryDistance };
+module.exports = queryDistance;
