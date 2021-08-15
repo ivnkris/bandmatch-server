@@ -73,9 +73,11 @@ const typeDefs = gql`
   }
 
   type Gig {
+    id: ID!
     title: String!
     description: String
-    genre: ID!
+    genre: Genre
+    imageUrl: String!
     fee: Int!
     websiteUrl: String
     dateTime: String!
