@@ -10,9 +10,8 @@ const schema = {
     required: true,
   },
   genre: {
-    type: String,
-    enum: ["rock", "pop", "folk", "jazz", "country"],
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "Genre",
   },
   fee: {
     type: Number,
@@ -34,10 +33,27 @@ const schema = {
     type: Schema.Types.ObjectId,
     required: false,
   },
-  userId: [
+  accepting: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  performers: [
     {
-      type: Schema.Types.ObjectId,
-      required: false,
+      musicianId: {
+        type: Schema.Types.ObjectId,
+        ref: "MusicianUser",
+        required: false,
+      },
+      bandId: {
+        type: Schema.Types.ObjectId,
+        ref: "Band",
+        required: false,
+      },
+      confirmed: {
+        type: Boolean,
+        required: false,
+      },
     },
   ],
 };

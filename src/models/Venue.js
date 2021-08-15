@@ -5,11 +5,6 @@ const schema = {
     type: String,
     required: false,
   },
-  isPremium: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
   postcode: {
     type: String,
     required: true,
