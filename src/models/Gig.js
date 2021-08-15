@@ -21,12 +21,17 @@ const schema = {
     type: String,
     required: false,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
   dateTime: {
     type: Date,
     required: true,
   },
   venue: {
     type: Schema.Types.ObjectId,
+    ref: "Venue",
     required: false,
   },
   accepting: {
