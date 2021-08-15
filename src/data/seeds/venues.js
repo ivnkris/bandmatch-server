@@ -2,7 +2,7 @@ const venues = [
   {
     type: "venue",
     postcode: "CH65+0EU",
-    venueName: "West View",
+    name: "West View",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
@@ -12,7 +12,7 @@ const venues = [
   {
     type: "venue",
     postcode: "SY23+3UF",
-    venueName: "Jam Rooms",
+    name: "Jam Rooms",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1561114601-81d07393ee3d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
@@ -22,7 +22,7 @@ const venues = [
   {
     type: "venue",
     postcode: "EH21+7FE",
-    venueName: "Accapella",
+    name: "Accapella",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1538488881038-e252a119ace7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
@@ -32,7 +32,7 @@ const venues = [
   {
     type: "venue",
     postcode: "SM2+6ES",
-    venueName: "House of Rock",
+    name: "House of Rock",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1552566626-2d907dab0dff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
@@ -42,7 +42,7 @@ const venues = [
   {
     type: "venue",
     postcode: "NR12+7AA",
-    venueName: "Blues Room",
+    name: "Blues Room",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1531527122496-151cfb74bda5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
@@ -52,7 +52,7 @@ const venues = [
   {
     type: "venue",
     postcode: "CV21+1ER",
-    venueName: "Overtones",
+    name: "Overtones",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1508028209469-933de69c0f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
@@ -62,7 +62,7 @@ const venues = [
   {
     type: "venue",
     postcode: "L74+4BJ",
-    venueName: "The Lanes",
+    name: "The Lanes",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1538333581680-29dd4752ddf2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
@@ -72,7 +72,7 @@ const venues = [
   {
     type: "venue",
     postcode: "BN23+5SU",
-    venueName: "The Beach Hut",
+    name: "The Beach Hut",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1574096079513-d8259312b785?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80",
@@ -82,7 +82,7 @@ const venues = [
   {
     type: "venue",
     postcode: "HU17+8ZS",
-    venueName: "Daisy's",
+    name: "Daisy's",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1503971052383-6d71287aef49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
@@ -92,7 +92,7 @@ const venues = [
   {
     type: "venue",
     postcode: "SR6+7FF",
-    venueName: "The Crown",
+    name: "The Crown",
     websiteUrl: "https://www.google.com/",
     photo:
       "https://images.unsplash.com/photo-1434569842867-4d6d1d4d1ef0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
