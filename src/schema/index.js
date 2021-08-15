@@ -68,7 +68,7 @@ const typeDefs = gql`
 
   type Performers {
     musician: MusicianUser
-    band: BandUser
+    band: Band
     confirmed: Boolean
   }
 
@@ -99,7 +99,7 @@ const typeDefs = gql`
     instruments: [Instrument]
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
-    gigs(id: ID): [Gig]
+    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
   }
 
   input LoginInput {
