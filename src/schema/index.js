@@ -60,6 +60,30 @@ const typeDefs = gql`
     bands: [Band]
   }
 
+  type Venue {
+    id: ID!
+    name: String!
+    postcode: String!
+  }
+
+  type Performers {
+    musician: MusicianUser
+    band: BandUser
+    confirmed: Boolean
+  }
+
+  type Gig {
+    title: String!
+    description: String
+    genre: ID!
+    fee: Int!
+    websiteUrl: String
+    dateTime: String!
+    venue: Venue
+    accepting: Boolean!
+    performers: [Performers]
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
@@ -75,6 +99,7 @@ const typeDefs = gql`
     instruments: [Instrument]
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    gigs(id: ID): [Gig]
   }
 
   input LoginInput {
