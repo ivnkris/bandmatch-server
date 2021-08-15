@@ -44,36 +44,25 @@ db.once("open", async () => {
     const genresFromDb = await Genre.find({});
     const instrumentsFromDb = await Instrument.find({});
 
+    // seed venues
+    await Venue.insertMany(venues);
+    console.log("Venues seeded successfully!!!");
+
+    const venuesFromDb = await Venue.find({});
+
     // seed gigs
     const gigsToSeed = gigs.map((gig) => {
       return {
         ...gig,
         genre: genresFromDb[randomIndex(genresFromDb.length)]._id,
+        venue: venuesFromDb[randomIndex(venuesFromDb.length)]._id,
       };
     });
 
     await Gig.insertMany(gigsToSeed);
     console.log("Gigs seeded successfully!!!");
 
-    // seed venues
-    const gigsFromDb = await Gig.find({});
-
-    const venuesToSeed = venues.map((venue) => {
-      return {
-        ...venue,
-        gigs: [
-          gigsFromDb[randomIndex(gigsFromDb.length)]._id,
-          gigsFromDb[randomIndex(gigsFromDb.length)]._id,
-        ],
-      };
-    });
-
-    await Venue.insertMany(venuesToSeed);
-    console.log("Venues seeded successfully!!!");
-
     //seed venue users
-    const venuesFromDb = await Venue.find({});
-
     const venueUsersToSeed = venueUsers.map((venueUser) => {
       return {
         ...venueUser,

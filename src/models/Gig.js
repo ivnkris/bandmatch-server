@@ -17,10 +17,6 @@ const schema = {
     type: Number,
     required: true,
   },
-  postcode: {
-    type: String,
-    required: true,
-  },
   websiteUrl: {
     type: String,
     required: false,
@@ -29,7 +25,7 @@ const schema = {
     type: Date,
     required: true,
   },
-  venueId: {
+  venue: {
     type: Schema.Types.ObjectId,
     required: false,
   },
@@ -40,12 +36,12 @@ const schema = {
   },
   performers: [
     {
-      musicianId: {
+      musician: {
         type: Schema.Types.ObjectId,
         ref: "MusicianUser",
         required: false,
       },
-      bandId: {
+      band: {
         type: Schema.Types.ObjectId,
         ref: "Band",
         required: false,

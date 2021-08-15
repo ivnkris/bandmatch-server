@@ -23,12 +23,6 @@ const schema = {
     type: String,
     required: false,
   },
-  gigs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Gig",
-    },
-  ],
 };
 
 const venueSchema = new Schema(schema);
