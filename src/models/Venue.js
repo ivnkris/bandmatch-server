@@ -5,11 +5,6 @@ const schema = {
     type: String,
     required: false,
   },
-  isPremium: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
   postcode: {
     type: String,
     required: true,
@@ -28,12 +23,6 @@ const schema = {
     type: String,
     required: false,
   },
-  gigs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Gig",
-    },
-  ],
 };
 
 const venueSchema = new Schema(schema);
