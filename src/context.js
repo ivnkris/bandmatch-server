@@ -1,24 +1,24 @@
-const { AuthenticationError } = require("apollo-server");
+const { AuthenticationError } = require("apollo-server-express");
 const { verifyToken } = require("./utils/tokenise");
 
 const context = ({ req }) => {
-  let token = req.body.token || req.query.token || req.headers.authorization;
+	let token = req.body.token || req.query.token || req.headers.authorization;
 
-  if (req.headers.authorization) {
-    token = token.split(" ").pop().trim();
-  }
+	if (req.headers.authorization) {
+		token = token.split(" ").pop().trim();
+	}
 
-  if (!token) {
-    return req;
-  }
+	if (!token) {
+		return req;
+	}
 
-  try {
-    req.user = verifyToken(token);
-  } catch {
-    throw new AuthenticationError("Invalid token");
-  }
+	try {
+		req.user = verifyToken(token);
+	} catch {
+		throw new AuthenticationError("Invalid token");
+	}
 
-  return req;
+	return req;
 };
 
 module.exports = context;
