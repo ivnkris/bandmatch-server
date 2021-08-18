@@ -1,6 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const socketio = require("socket.io");
+const cors = require("cors");
 
 const db = require("./config/connection");
 
@@ -22,6 +23,8 @@ const startServer = async () => {
 };
 
 startServer();
+
+app.use(cors());
 
 const http = db.once("open", () => {
 	app.listen(PORT, () =>
