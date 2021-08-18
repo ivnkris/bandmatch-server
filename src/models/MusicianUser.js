@@ -83,9 +83,12 @@ const schema = {
       type: Schema.Types.ObjectId,
     },
   ],
-  bandId: {
-    type: Schema.Types.ObjectId,
-  },
+  bands: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Band",
+    },
+  ],
   gigs: [
     {
       type: Schema.Types.ObjectId,

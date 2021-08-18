@@ -29,11 +29,6 @@ const schema = {
     type: Date,
     required: true,
   },
-  venue: {
-    type: Schema.Types.ObjectId,
-    ref: "Venue",
-    required: false,
-  },
   accepting: {
     type: Boolean,
     required: true,

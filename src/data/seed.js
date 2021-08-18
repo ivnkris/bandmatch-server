@@ -44,23 +44,31 @@ db.once("open", async () => {
     const genresFromDb = await Genre.find({});
     const instrumentsFromDb = await Instrument.find({});
 
-    // seed venues
-    await Venue.insertMany(venues);
-    console.log("Venues seeded successfully!!!");
-
-    const venuesFromDb = await Venue.find({});
-
     // seed gigs
     const gigsToSeed = gigs.map((gig) => {
       return {
         ...gig,
         genre: genresFromDb[randomIndex(genresFromDb.length)]._id,
-        venue: venuesFromDb[randomIndex(venuesFromDb.length)]._id,
       };
     });
 
     await Gig.insertMany(gigsToSeed);
     console.log("Gigs seeded successfully!!!");
+
+    const gigsFromDb = await Gig.find({});
+
+    // seed venues
+    const venuesToSeed = venues.map((venue) => {
+      return {
+        ...venue,
+        gigs: gigsFromDb[randomIndex(gigsFromDb.length)]._id,
+      };
+    });
+
+    await Venue.insertMany(venuesToSeed);
+    console.log("Venues seeded successfully!!!");
+
+    const venuesFromDb = await Venue.find({});
 
     //seed venue users
     const venueUsersToSeed = venueUsers.map((venueUser) => {
@@ -93,11 +101,17 @@ db.once("open", async () => {
         lookingFor: [
           instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
         ],
+        gigs: [
+          gigsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+          gigsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
       };
     });
 
     await Band.insertMany(bandsToSeed);
     console.log("Bands seeded successfully!!!");
+
+    const bandsFromDb = await Band.find({});
 
     const musiciansToSeed = musicianUsers.map((musician) => {
       return {
@@ -108,6 +122,14 @@ db.once("open", async () => {
         ],
         lookingFor: [
           instrumentsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        gigs: [
+          gigsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+          gigsFromDb[randomIndex(instrumentsFromDb.length)]._id,
+        ],
+        bands: [
+          bandsFromDb[randomIndex(bandsFromDb.length)]._id,
+          bandsFromDb[randomIndex(bandsFromDb.length)]._id,
         ],
       };
     });
