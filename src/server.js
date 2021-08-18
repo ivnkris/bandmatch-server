@@ -1,6 +1,6 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
-const socketio = require("socket.io");
+const socketIo = require("socket.io");
 const cors = require("cors");
 
 const db = require("./config/connection");
@@ -34,7 +34,7 @@ const http = db.once("open", () => {
 	);
 });
 
-const io = socketio(http);
+const io = socketIo(http);
 
 io.once("connection", (socket) => {
 	const id = socket.handshake.query.id;
