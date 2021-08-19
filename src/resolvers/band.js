@@ -4,7 +4,8 @@ const band = async (_, { id }) => {
   const band = await Band.findById(id)
     .populate("genre")
     .populate("instruments")
-    .populate("lookingFor");
+    .populate("lookingFor")
+    .populate("musicians");
 
   return band;
 };
