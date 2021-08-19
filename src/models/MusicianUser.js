@@ -89,12 +89,6 @@ const schema = {
       ref: "Band",
     },
   ],
-  gigs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Gig",
-    },
-  ],
 };
 
 const userSchema = new Schema(schema);

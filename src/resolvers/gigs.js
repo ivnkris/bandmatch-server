@@ -2,8 +2,9 @@ const { Gig } = require("../models");
 
 const gigs = async (_, { filters }) => {
   const gigs = await Gig.find({ accepting: true })
-    .populate("venue")
-    .populate("genre");
+    .populate("genre")
+    .populate("performers")
+    .populate("venue");
 
   return gigs;
 };

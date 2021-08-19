@@ -5,9 +5,8 @@ const band = async (_, { id }) => {
     .populate("genre")
     .populate("instruments")
     .populate("lookingFor")
-    .populate("gigs");
+    .populate("musicians");
 
-  // console.log(band);
   return band;
 };
 

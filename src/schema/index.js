@@ -16,19 +16,17 @@ const typeDefs = gql`
     id: ID!
     firstName: String!
     lastName: String!
-    description: String!
-    postcode: String!
+    description: String
+    postcode: String
     genre: [Genre]
-    experienceLevel: String!
+    experienceLevel: String
     instruments: [Instrument]
-    imageUrl: String!
+    imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [Instrument]
-    openToCollaboration: Boolean!
-    openToJoiningBand: Boolean!
-    bands: [Band]
-    gigs: [Gig]
+    openToCollaboration: Boolean
+    openToJoiningBand: Boolean
   }
 
   type Band {
@@ -46,8 +44,7 @@ const typeDefs = gql`
     lookingFor: [Instrument]
     openToCollaboration: Boolean
     openToMembers: Boolean
-    members: [MusicianUser]
-    gigs: [Gig]
+    musicians: [MusicianUser]
   }
 
   type Assemble {
@@ -69,7 +66,7 @@ const typeDefs = gql`
   type Performers {
     musician: MusicianUser
     band: Band
-    confirmed: Boolean
+    confirmed: Boolean!
   }
 
   type Gig {
