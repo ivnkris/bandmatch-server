@@ -37,15 +37,11 @@ const schema = {
   performers: [
     {
       musician: {
-        type: Schema.Types.ObjectId,
-        ref: "MusicianUser",
-        required: false,
+        type: String,
       },
 
       band: {
-        type: Schema.Types.ObjectId,
-        ref: "Band",
-        required: false,
+        type: String,
       },
 
       confirmed: {
