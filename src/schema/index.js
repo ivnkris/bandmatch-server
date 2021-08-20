@@ -14,6 +14,7 @@ const typeDefs = gql`
 
   type MusicianUser {
     id: ID
+    email: String
     firstName: String
     lastName: String
     description: String
