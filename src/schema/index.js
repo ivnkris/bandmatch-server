@@ -116,13 +116,13 @@ const typeDefs = gql`
     description: String!
     isPremium: Boolean!
     postcode: String
-    genre: [ID]
+    genre: [String]
     experienceLevel: String!
-    instruments: [ID]
+    instruments: [String]
     imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
-    lookingFor: [ID]
+    lookingFor: [String]
     openToCollaboration: Boolean!
     openToJoiningBand: Boolean!
   }

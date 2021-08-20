@@ -1,45 +1,14 @@
-const { MusicianUser } = require("../models");
+const { MusicianUser, Genre, Instrument } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
 
 const signUp = async (_, { input }) => {
-  const {
-    email,
-    password,
-    firstName,
-    lastName,
-    description,
-    isPremium,
-    postcode,
-    genre,
-    experienceLevel,
-    instruments,
-    imageUrl,
-    websiteUrl,
-    soundCloudUrl,
-    lookingFor,
-    openToCollaboration,
-    openToJoiningBand,
-  } = input;
+  const newUser = await MusicianUser.create(input);
 
-  const user = await MusicianUser.create({
-    email,
-    password,
-    firstName,
-    lastName,
-    description,
-    isPremium,
-    postcode,
-    genre,
-    experienceLevel,
-    instruments,
-    imageUrl,
-    websiteUrl,
-    soundCloudUrl,
-    lookingFor,
-    openToCollaboration,
-    openToJoiningBand,
-  });
+  const user = await MusicianUser.find({ _id: newUser._id })
+    .populate("genre")
+    .populate("instruments")
+    .populate("lookingFor");
 
   const token = tokenise({ id: user.id, email: user.email });
 
