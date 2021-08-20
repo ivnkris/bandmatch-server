@@ -5,19 +5,23 @@ const gigs = async (_, { filters }) => {
     .populate("genre")
     .populate("venue");
 
-  const filteredGigs = gigs.filter((gig) => {
-    const filteredPerformers = gig.performers.filter((performers) => {
-      if (filters.musician) {
-        return filters.musician === performers.musician;
-      } else if (filters.band) {
-        return filters.band === performers.band;
-      }
+  if (filters) {
+    const filteredGigs = gigs.filter((gig) => {
+      const filteredPerformers = gig.performers.filter((performers) => {
+        if (filters.musician) {
+          return filters.musician === performers.musician;
+        } else if (filters.band) {
+          return filters.band === performers.band;
+        }
+      });
+
+      return filteredPerformers.length;
     });
 
-    return filteredPerformers.length;
-  });
+    return filteredGigs;
+  }
 
-  return filteredGigs;
+  return gigs;
 };
 
 module.exports = gigs;
