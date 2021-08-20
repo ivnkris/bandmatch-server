@@ -13,9 +13,9 @@ const typeDefs = gql`
   }
 
   type MusicianUser {
-    id: ID!
-    firstName: String!
-    lastName: String!
+    id: ID
+    firstName: String
+    lastName: String
     description: String
     postcode: String
     genre: [Genre]
@@ -30,8 +30,8 @@ const typeDefs = gql`
   }
 
   type Band {
-    id: ID!
-    name: String!
+    id: ID
+    name: String
     description: String!
     location: String!
     genre: [Genre]
@@ -64,8 +64,8 @@ const typeDefs = gql`
   }
 
   type Performers {
-    musician: MusicianUser
-    band: Band
+    musician: String
+    band: String
     confirmed: Boolean!
   }
 
@@ -89,6 +89,8 @@ const typeDefs = gql`
     lookingFor: [ID]
     userType: [String]
     experienceLevel: [String]
+    musician: String
+    band: String
   }
 
   type Query {
