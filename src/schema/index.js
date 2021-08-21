@@ -48,6 +48,14 @@ const typeDefs = gql`
     musicians: [MusicianUser]
   }
 
+  type VenueUser {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+    imageUrl: String
+  }
+
   type Assemble {
     musicians: [MusicianUser]
     bands: [Band]
@@ -106,17 +114,6 @@ const typeDefs = gql`
     band: String
   }
 
-  type Query {
-    musicianUser(id: ID!): MusicianUser
-    band(id: ID!): Band
-    genres: [Genre]
-    instruments: [Instrument]
-    assemble(sortBy: String, top: Int, filters: Filter): Assemble
-    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
-    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
-    conversations(id: ID!): [Conversation]
-  }
-
   input LoginInput {
     email: String!
     password: String!
@@ -139,6 +136,14 @@ const typeDefs = gql`
     lookingFor: [String]
     openToCollaboration: Boolean!
     openToJoiningBand: Boolean!
+  }
+
+  input SignupVenueInput {
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+    imageUrl: String
   }
 
   input BandInput {
@@ -164,9 +169,23 @@ const typeDefs = gql`
     text: String!
   }
 
+  type LoginUser {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+  }
+
   type Auth {
     token: ID!
-    user: MusicianUser!
+    user: LoginUser!
+    type: String!
+  }
+
+  type VenueAuth {
+    token: ID!
+    user: VenueUser!
+    type: String!
   }
 
   type Mutation {
@@ -174,6 +193,19 @@ const typeDefs = gql`
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
     createMessage(input: MessageInput!): Message!
+    signupVenueUser(input: SignupVenueInput!): VenueAuth!
+  }
+
+  type Query {
+    musicianUser(id: ID!): MusicianUser
+    band(id: ID!): Band
+    venueUser(id: ID!): VenueUser
+    genres: [Genre]
+    instruments: [Instrument]
+    assemble(sortBy: String, top: Int, filters: Filter): Assemble
+    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    conversations(id: ID!): [Conversation]
   }
 `;
 

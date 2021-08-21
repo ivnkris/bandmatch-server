@@ -1,4 +1,4 @@
-const { MusicianUser, Genre, Instrument } = require("../models");
+const { MusicianUser } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
 
@@ -7,7 +7,7 @@ const signUp = async (_, { input }) => {
 
   const token = tokenise({ id: user.id, email: user.email });
 
-  return { token, user };
+  return { token, user, type: "musician" };
 };
 
 module.exports = signUp;

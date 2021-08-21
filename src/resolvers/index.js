@@ -10,24 +10,26 @@ const createBand = require("./createBand");
 const gigs = require("./gigs");
 const conversations = require("./conversations");
 const createMessage = require("./createMessage");
+const signupVenueUser = require("./signupVenueUser");
 
 const resolvers = {
-	Query: {
-		musicianUser,
-		band,
-		assemble,
-		collaborate,
-		genres,
-		instruments,
-		gigs,
-		conversations,
-	},
-	Mutation: {
-		login,
-		signup,
-		createBand,
-		createMessage,
-	},
+  Query: {
+    musicianUser,
+    band,
+    assemble,
+    collaborate,
+    genres,
+    instruments,
+    gigs,
+    conversations,
+  },
+  Mutation: {
+    login,
+    signup,
+    createBand,
+    createMessage,
+    signupVenueUser,
+  },
 };
 
 module.exports = resolvers;
