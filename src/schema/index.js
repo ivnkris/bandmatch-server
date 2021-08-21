@@ -85,9 +85,14 @@ const typeDefs = gql`
 
 	type Message {
 		id: ID!
-		sender: String!
-		recipient: String!
+		senderId: String!
 		text: String!
+	}
+
+	type Conversation {
+		id: ID!
+		participants: [ID]!
+		messages: [Message]
 	}
 
 	input Filter {
@@ -108,7 +113,7 @@ const typeDefs = gql`
 		assemble(sortBy: String, top: Int, filters: Filter): Assemble
 		collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
 		gigs(sortBy: String, top: Int, filters: Filter): [Gig]
-		messages(id: ID!): [Message]
+		conversations(id: ID!): [Conversation]
 	}
 
 	input LoginInput {
@@ -153,8 +158,8 @@ const typeDefs = gql`
 	}
 
 	input MessageInput {
-		sender: String!
-		recipient: String!
+		senderId: String!
+		recipientId: String!
 		text: String!
 	}
 

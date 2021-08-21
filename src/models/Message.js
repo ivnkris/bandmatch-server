@@ -1,11 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const schema = {
-	sender: {
-		type: String,
-		required: true,
-	},
-	recipient: {
+	senderId: {
 		type: String,
 		required: true,
 	},
