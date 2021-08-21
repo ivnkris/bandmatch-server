@@ -5,6 +5,7 @@ const musicianUser = async (_, { id }) => {
     .populate("genre")
     .populate("instruments")
     .populate("lookingFor");
+
   return musicianUser;
 };
 

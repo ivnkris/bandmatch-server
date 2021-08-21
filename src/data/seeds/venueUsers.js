@@ -7,7 +7,6 @@ const venueUsers = [
     isPremium: false,
     image:
       "https://images.unsplash.com/image-1605722243979-fe0be8158232?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    venue: [],
   },
   {
     email: "amanda.taylor@email.com",
@@ -17,7 +16,6 @@ const venueUsers = [
     isPremium: false,
     image:
       "https://images.unsplash.com/image-1605722243979-fe0be8158232?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    venue: [],
   },
   {
     email: "sarah.white@email.com",
@@ -27,7 +25,6 @@ const venueUsers = [
     isPremium: false,
     image:
       "https://images.unsplash.com/image-1605722243979-fe0be8158232?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    venue: [],
   },
   {
     email: "lewis.heard@email.com",
@@ -37,7 +34,6 @@ const venueUsers = [
     isPremium: false,
     image:
       "https://images.unsplash.com/image-1605722243979-fe0be8158232?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    venue: [],
   },
   {
     email: "melanie.darwin@email.com",
@@ -47,7 +43,6 @@ const venueUsers = [
     isPremium: false,
     image:
       "https://images.unsplash.com/image-1605722243979-fe0be8158232?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    venue: [],
   },
 ];
 

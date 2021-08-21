@@ -10,36 +10,52 @@ const schema = {
     required: true,
   },
   genre: {
-    type: String,
-    enum: ["rock", "pop", "folk", "jazz", "country"],
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "Genre",
   },
   fee: {
     type: Number,
-    required: true,
-  },
-  postcode: {
-    type: String,
     required: true,
   },
   websiteUrl: {
     type: String,
     required: false,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
   dateTime: {
     type: Date,
     required: true,
   },
-  venueId: {
-    type: Schema.Types.ObjectId,
-    required: false,
+  accepting: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
-  userId: [
+  performers: [
     {
-      type: Schema.Types.ObjectId,
-      required: false,
+      musician: {
+        type: String,
+      },
+
+      band: {
+        type: String,
+      },
+
+      confirmed: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
     },
   ],
+  venue: {
+    type: Schema.Types.ObjectId,
+    ref: "Venue",
+    required: true,
+  },
 };
 
 const gigSchema = new Schema(schema);

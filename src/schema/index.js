@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Genre {
@@ -13,28 +13,25 @@ const typeDefs = gql`
   }
 
   type MusicianUser {
-    id: ID!
-    firstName: String!
-    lastName: String!
-    description: String!
-    postcode: String!
+    id: ID
+    firstName: String
+    lastName: String
+    description: String
+    postcode: String
     genre: [Genre]
-    experienceLevel: String!
+    experienceLevel: String
     instruments: [Instrument]
-    imageUrl: String!
+    imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [Instrument]
-    openToCollaboration: Boolean!
-    openToJoiningBand: Boolean!
-    band: ID
-    bandName: String
-    bandImage: String
+    openToCollaboration: Boolean
+    openToJoiningBand: Boolean
   }
 
   type Band {
-    id: ID!
-    name: String!
+    id: ID
+    name: String
     description: String!
     location: String!
     genre: [Genre]
@@ -47,7 +44,7 @@ const typeDefs = gql`
     lookingFor: [Instrument]
     openToCollaboration: Boolean
     openToMembers: Boolean
-    members: [MusicianUser]
+    musicians: [MusicianUser]
   }
 
   type Assemble {
@@ -60,12 +57,40 @@ const typeDefs = gql`
     bands: [Band]
   }
 
+  type Venue {
+    id: ID!
+    name: String!
+    postcode: String!
+  }
+
+  type Performers {
+    musician: String
+    band: String
+    confirmed: Boolean!
+  }
+
+  type Gig {
+    id: ID!
+    title: String!
+    description: String
+    genre: Genre
+    imageUrl: String!
+    fee: Int!
+    websiteUrl: String
+    dateTime: String!
+    venue: Venue
+    accepting: Boolean!
+    performers: [Performers]
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
     lookingFor: [ID]
     userType: [String]
     experienceLevel: [String]
+    musician: String
+    band: String
   }
 
   type Query {
@@ -75,6 +100,7 @@ const typeDefs = gql`
     instruments: [Instrument]
     assemble(sortBy: String, top: Int, filters: Filter, offset: Int): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
   }
 
   input LoginInput {
