@@ -8,22 +8,26 @@ const login = require("./login");
 const signup = require("./signup");
 const createBand = require("./createBand");
 const gigs = require("./gigs");
+const messages = require("./messages");
+const createMessage = require("./createMessage");
 
 const resolvers = {
-  Query: {
-    musicianUser,
-    band,
-    assemble,
-    collaborate,
-    genres,
-    instruments,
-    gigs,
-  },
-  Mutation: {
-    login,
-    signup,
-    createBand,
-  },
+	Query: {
+		musicianUser,
+		band,
+		assemble,
+		collaborate,
+		genres,
+		instruments,
+		gigs,
+		messages,
+	},
+	Mutation: {
+		login,
+		signup,
+		createBand,
+		createMessage,
+	},
 };
 
 module.exports = resolvers;
