@@ -86,6 +86,11 @@ const typeDefs = gql`
     performers: [Performers]
   }
 
+  type musicianValidationOutcome {
+    email: String!
+    exists: Boolean!
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
@@ -102,6 +107,9 @@ const typeDefs = gql`
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    checkIfMusicianExists(
+      input: checkMusicianInput!
+    ): [musicianValidationOutcome]
   }
 
   input LoginInput {
@@ -143,6 +151,10 @@ const typeDefs = gql`
     openToCollaboration: Boolean
     openToMembers: Boolean
     members: [ID]
+  }
+
+  input checkMusicianInput {
+    musicians: [String!]
   }
 
   type Auth {
