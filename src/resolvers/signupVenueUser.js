@@ -2,7 +2,7 @@ const { VenueUser } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
 
-const signUpVenueUser = async (_, { input }) => {
+const signupVenueUser = async (_, { input }) => {
   const user = await VenueUser.create(input);
 
   const token = tokenise({ id: user.id, email: user.email });
@@ -10,4 +10,4 @@ const signUpVenueUser = async (_, { input }) => {
   return { token, user, type: "venue" };
 };
 
-module.exports = signUpVenueUser;
+module.exports = signupVenueUser;
