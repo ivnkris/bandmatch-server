@@ -73,7 +73,7 @@ const typeDefs = gql`
     band(id: ID!): Band
     genres: [Genre]
     instruments: [Instrument]
-    assemble(sortBy: String, top: Int, filters: Filter): Assemble
+    assemble(sortBy: String, top: Int, filters: Filter, offset: Int): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
   }
 
