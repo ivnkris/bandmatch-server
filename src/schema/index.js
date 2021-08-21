@@ -133,10 +133,10 @@ const typeDefs = gql`
     description: String!
     location: String!
     genre: [ID]
-    experienceLevel: String!
-    numberOfMembers: Int!
+    experienceLevel: String
+    numberOfMembers: Int
     instruments: [ID]
-    imageUrl: String!
+    imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [ID]
