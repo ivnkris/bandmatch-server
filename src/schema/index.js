@@ -91,7 +91,7 @@ const typeDefs = gql`
 
 	type Conversation {
 		id: ID!
-		participants: [ID]!
+		participants: [MusicianUser]!
 		messages: [Message]
 	}
 
