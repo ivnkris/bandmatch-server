@@ -84,6 +84,18 @@ const typeDefs = gql`
     performers: [Performers]
   }
 
+  type Message {
+    id: ID!
+    senderId: String!
+    text: String!
+  }
+
+  type Conversation {
+    id: ID!
+    participants: [MusicianUser]!
+    messages: [Message]
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
@@ -102,6 +114,7 @@ const typeDefs = gql`
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    conversations(id: ID!): [Conversation]
   }
 
   input LoginInput {
@@ -145,6 +158,12 @@ const typeDefs = gql`
     members: [ID]
   }
 
+  input MessageInput {
+    senderId: String!
+    recipientId: String!
+    text: String!
+  }
+
   type Auth {
     token: ID!
     user: MusicianUser!
@@ -154,6 +173,7 @@ const typeDefs = gql`
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
+    createMessage(input: MessageInput!): Message!
   }
 `;
 
