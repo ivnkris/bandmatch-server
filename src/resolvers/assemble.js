@@ -54,7 +54,7 @@ const getMusicians = async (filters, offset) => {
   return musicians;
 };
 
-const assemble = async (_, { filters, offset }) => {
+const assemble = async (_, { filters, musiciansOffset, bandsOffset }) => {
   if (filters) {
     let cleansedFilters = {};
     Object.keys(filters).forEach((filterKey) => {
@@ -64,24 +64,24 @@ const assemble = async (_, { filters, offset }) => {
     });
 
     if (!cleansedFilters.userType || cleansedFilters.userType.length === 2) {
-      const bands = await getBands(cleansedFilters, offset);
-      const musicians = await getMusicians(cleansedFilters, offset);
+      const bands = await getBands(cleansedFilters, bandsOffset);
+      const musicians = await getMusicians(cleansedFilters, musiciansOffset);
 
       return { musicians, bands };
     }
 
     if (cleansedFilters.userType[0] === "band") {
-      const bands = await getBands(cleansedFilters, offset);
+      const bands = await getBands(cleansedFilters, bandsOffset);
       return { bands, musicians: [] };
     }
 
     if (cleansedFilters.userType[0] === "musician") {
-      const musicians = await getMusicians(cleansedFilters, offset);
+      const musicians = await getMusicians(cleansedFilters, musiciansOffset);
       return { musicians, bands: [] };
     }
   } else {
-    const bands = await getBands(_, offset);
-    const musicians = await getMusicians(_, offset);
+    const bands = await getBands(_, bandsOffset);
+    const musicians = await getMusicians(_, musiciansOffset);
 
     return { musicians, bands };
   }
