@@ -54,6 +54,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     imageUrl: String
+    members: [MusicianUser]
   }
 
   type Assemble {
@@ -73,9 +74,9 @@ const typeDefs = gql`
   }
 
   type Performers {
-    musician: String
-    band: String
-    confirmed: Boolean!
+    musician: MusicianUser
+    band: Band
+    confirmed: Boolean
   }
 
   type Gig {
@@ -104,6 +105,11 @@ const typeDefs = gql`
     messages: [Message]
   }
 
+  type musicianValidationOutcome {
+    email: String!
+    exists: Boolean!
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
@@ -112,6 +118,21 @@ const typeDefs = gql`
     experienceLevel: [String]
     musician: String
     band: String
+  }
+
+  type Query {
+    musicianUser(id: ID!): MusicianUser
+    band(id: ID!): Band
+    venueUser(id: ID!): VenueUser
+    genres: [Genre]
+    instruments: [Instrument]
+    assemble(sortBy: String, top: Int, filters: Filter): Assemble
+    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    conversations(id: ID!): [Conversation]
+    checkIfMusicianExists(
+      input: checkMusicianInput!
+    ): [musicianValidationOutcome]
   }
 
   input LoginInput {
@@ -176,6 +197,10 @@ const typeDefs = gql`
     lastName: String
   }
 
+  input checkMusicianInput {
+    musicians: [String!]
+  }
+
   type Auth {
     token: ID!
     user: LoginUser!
@@ -194,18 +219,6 @@ const typeDefs = gql`
     createBand(input: BandInput!): Band!
     createMessage(input: MessageInput!): Message!
     signupVenueUser(input: SignupVenueInput!): VenueAuth!
-  }
-
-  type Query {
-    musicianUser(id: ID!): MusicianUser
-    band(id: ID!): Band
-    venueUser(id: ID!): VenueUser
-    genres: [Genre]
-    instruments: [Instrument]
-    assemble(sortBy: String, top: Int, filters: Filter): Assemble
-    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
-    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
-    conversations(id: ID!): [Conversation]
   }
 `;
 

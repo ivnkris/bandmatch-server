@@ -8,6 +8,7 @@ const login = require("./login");
 const signup = require("./signup");
 const createBand = require("./createBand");
 const gigs = require("./gigs");
+const checkIfMusicianExists = require("./checkIfMusicianExists");
 const conversations = require("./conversations");
 const createMessage = require("./createMessage");
 const signupVenueUser = require("./signupVenueUser");
@@ -21,6 +22,7 @@ const resolvers = {
     genres,
     instruments,
     gigs,
+    checkIfMusicianExists,
     conversations,
   },
   Mutation: {
