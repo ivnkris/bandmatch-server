@@ -14,6 +14,7 @@ const checkIfMusicianExists = async (_, { input }) => {
     } else {
       return {
         email: musicianEmail,
+        id: user.id,
         exists: true,
       };
     }
@@ -21,6 +22,7 @@ const checkIfMusicianExists = async (_, { input }) => {
 
   const musicianValidationOutcome = await Promise.all(musicianValidationArray);
 
+  console.log(musicianValidationOutcome);
   return musicianValidationOutcome;
 };
 
