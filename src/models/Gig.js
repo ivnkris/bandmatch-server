@@ -9,10 +9,12 @@ const schema = {
     type: String,
     required: true,
   },
-  genre: {
-    type: Schema.Types.ObjectId,
-    ref: "Genre",
-  },
+  genre: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Genre",
+    },
+  ],
   fee: {
     type: Number,
     required: true,
@@ -32,7 +34,7 @@ const schema = {
   accepting: {
     type: Boolean,
     required: true,
-    default: false,
+    default: true,
   },
   performers: [
     {
