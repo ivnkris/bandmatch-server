@@ -29,11 +29,6 @@ const schema = {
     type: Date,
     required: true,
   },
-  venue: {
-    type: Schema.Types.ObjectId,
-    ref: "Venue",
-    required: false,
-  },
   accepting: {
     type: Boolean,
     required: true,
@@ -42,21 +37,25 @@ const schema = {
   performers: [
     {
       musician: {
-        type: Schema.Types.ObjectId,
-        ref: "MusicianUser",
-        required: false,
+        type: String,
       },
+
       band: {
-        type: Schema.Types.ObjectId,
-        ref: "Band",
-        required: false,
+        type: String,
       },
+
       confirmed: {
         type: Boolean,
-        required: false,
+        required: true,
+        default: false,
       },
     },
   ],
+  venue: {
+    type: Schema.Types.ObjectId,
+    ref: "Venue",
+    required: true,
+  },
 };
 
 const gigSchema = new Schema(schema);

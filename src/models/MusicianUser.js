@@ -83,13 +83,10 @@ const schema = {
       type: Schema.Types.ObjectId,
     },
   ],
-  bandId: {
-    type: Schema.Types.ObjectId,
-  },
-  gigs: [
+  bands: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Gig",
+      ref: "Band",
     },
   ],
 };

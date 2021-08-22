@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Genre {
@@ -97,6 +97,8 @@ const typeDefs = gql`
     lookingFor: [ID]
     userType: [String]
     experienceLevel: [String]
+    musician: String
+    band: String
   }
 
   type Query {
@@ -107,6 +109,7 @@ const typeDefs = gql`
     assemble(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    conversations(id: ID!): [Conversation]
     checkIfMusicianExists(
       input: checkMusicianInput!
     ): [musicianValidationOutcome]
@@ -141,10 +144,10 @@ const typeDefs = gql`
     description: String!
     location: String!
     genre: [ID]
-    experienceLevel: String
-    numberOfMembers: Int
+    experienceLevel: String!
+    numberOfMembers: Int!
     instruments: [ID]
-    imageUrl: String
+    imageUrl: String!
     websiteUrl: String
     soundCloudUrl: String
     lookingFor: [ID]
@@ -162,10 +165,29 @@ const typeDefs = gql`
     user: MusicianUser!
   }
 
+  type Message {
+    id: ID!
+    senderId: String!
+    text: String!
+  }
+
+  type Conversation {
+    id: ID!
+    participants: [MusicianUser]!
+    messages: [Message]
+  }
+
+  input MessageInput {
+    senderId: String!
+    recipientId: String!
+    text: String!
+  }
+
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
+    createMessage(input: MessageInput!): Message!
   }
 `;
 

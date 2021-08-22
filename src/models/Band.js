@@ -62,10 +62,12 @@ const schema = {
     type: Boolean,
     required: false,
   },
-  gigs: [
+
+  musicians: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Gig",
+      ref: "MusicianUser",
+      required: false,
     },
   ],
 };
