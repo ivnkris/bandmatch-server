@@ -5,7 +5,6 @@ const conversation = async (_, { id }) => {
     .populate("messages")
     .populate("participants");
 
-  console.log(conversation, id);
   return conversation;
 };
 
