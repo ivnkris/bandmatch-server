@@ -108,6 +108,7 @@ const typeDefs = gql`
   type musicianValidationOutcome {
     email: String!
     exists: Boolean!
+    id: ID
   }
 
   input Filter {
@@ -201,6 +202,17 @@ const typeDefs = gql`
     musicians: [String!]
   }
 
+  input GigInput {
+    title: String!
+    description: String!
+    fee: Float!
+    imageUrl: String!
+    genre: [ID]!
+    dateTime: String
+    websiteUrl: String
+    venue: ID!
+  }
+
   type Auth {
     token: ID!
     user: LoginUser!
@@ -219,6 +231,7 @@ const typeDefs = gql`
     createBand(input: BandInput!): Band!
     createMessage(input: MessageInput!): Message!
     signupVenueUser(input: SignupVenueInput!): VenueAuth!
+    createGig(input: GigInput): Gig
   }
 `;
 
