@@ -14,6 +14,7 @@ const typeDefs = gql`
 
   type MusicianUser {
     id: ID
+    email: String
     firstName: String
     lastName: String
     description: String
@@ -47,6 +48,15 @@ const typeDefs = gql`
     musicians: [MusicianUser]
   }
 
+  type VenueUser {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+    imageUrl: String
+    members: [MusicianUser]
+  }
+
   type Assemble {
     musicians: [MusicianUser]
     bands: [Band]
@@ -64,9 +74,9 @@ const typeDefs = gql`
   }
 
   type Performers {
-    musician: String
-    band: String
-    confirmed: Boolean!
+    musician: MusicianUser
+    band: Band
+    confirmed: Boolean
   }
 
   type Gig {
@@ -83,6 +93,23 @@ const typeDefs = gql`
     performers: [Performers]
   }
 
+  type Message {
+    id: ID!
+    senderId: String!
+    text: String!
+  }
+
+  type Conversation {
+    id: ID!
+    participants: [MusicianUser]!
+    messages: [Message]
+  }
+
+  type musicianValidationOutcome {
+    email: String!
+    exists: Boolean!
+  }
+
   input Filter {
     genre: [ID]
     instruments: [ID]
@@ -96,6 +123,7 @@ const typeDefs = gql`
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
+    venueUser(id: ID!): VenueUser
     genres: [Genre]
     instruments: [Instrument]
     assemble(
@@ -113,6 +141,10 @@ const typeDefs = gql`
       bandsOffset: Int
     ): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    conversations(id: ID!): [Conversation]
+    checkIfMusicianExists(
+      input: checkMusicianInput!
+    ): [musicianValidationOutcome]
   }
 
   input LoginInput {
@@ -128,15 +160,23 @@ const typeDefs = gql`
     description: String!
     isPremium: Boolean!
     postcode: String
-    genre: [ID]
+    genre: [String]
     experienceLevel: String!
-    instruments: [ID]
+    instruments: [String]
     imageUrl: String
     websiteUrl: String
     soundCloudUrl: String
-    lookingFor: [ID]
+    lookingFor: [String]
     openToCollaboration: Boolean!
     openToJoiningBand: Boolean!
+  }
+
+  input SignupVenueInput {
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+    imageUrl: String
   }
 
   input BandInput {
@@ -156,15 +196,41 @@ const typeDefs = gql`
     members: [ID]
   }
 
+  input MessageInput {
+    senderId: String!
+    recipientId: String!
+    text: String!
+  }
+
+  type LoginUser {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+  }
+
+  input checkMusicianInput {
+    musicians: [String!]
+  }
+
   type Auth {
     token: ID!
-    user: MusicianUser!
+    user: LoginUser!
+    type: String!
+  }
+
+  type VenueAuth {
+    token: ID!
+    user: VenueUser!
+    type: String!
   }
 
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
+    createMessage(input: MessageInput!): Message!
+    signupVenueUser(input: SignupVenueInput!): VenueAuth!
   }
 `;
 

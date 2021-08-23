@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 
+const { hashPassword, validatePassword } = require("../utils/password");
+
 const schema = {
   email: {
     type: String,
@@ -22,7 +24,7 @@ const schema = {
     required: true,
     default: false,
   },
-  image: {
+  imageUrl: {
     type: String,
     required: false,
     default:
@@ -36,8 +38,12 @@ const schema = {
   ],
 };
 
-const userSchema = new Schema(schema);
+const venueUserSchema = new Schema(schema);
 
-const VenueUser = model("VenueUser", userSchema);
+venueUserSchema.pre("save", hashPassword);
+
+venueUserSchema.methods.validatePassword = validatePassword;
+
+const VenueUser = model("VenueUser", venueUserSchema);
 
 module.exports = VenueUser;
