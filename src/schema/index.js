@@ -172,7 +172,7 @@ const typeDefs = gql`
     name: String!
     description: String!
     location: String!
-    genre: [ID]
+    genre: ID
     experienceLevel: String!
     numberOfMembers: Int!
     instruments: [ID]
