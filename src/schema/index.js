@@ -74,8 +74,8 @@ const typeDefs = gql`
   }
 
   type Performers {
-    musician: MusicianUser
-    band: Band
+    musician: String
+    band: String
     confirmed: Boolean
   }
 
