@@ -126,8 +126,20 @@ const typeDefs = gql`
     venueUser(id: ID!): VenueUser
     genres: [Genre]
     instruments: [Instrument]
-    assemble(sortBy: String, top: Int, filters: Filter): Assemble
-    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    assemble(
+      sortBy: String
+      top: Int
+      filters: Filter
+      musiciansOffset: Int
+      bandsOffset: Int
+    ): Assemble
+    collaborate(
+      sortBy: String
+      top: Int
+      filters: Filter
+      musiciansOffset: Int
+      bandsOffset: Int
+    ): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
     conversations(id: ID!): [Conversation]
     checkIfMusicianExists(
