@@ -24,7 +24,7 @@ const constructFilters = (filters) => {
   return filterObject;
 };
 
-const getBands = async (filters) => {
+const getBands = async (filters, offset) => {
   const constructedFilters = constructFilters(filters || {});
 
   const searchFilters = { ...constructedFilters, openToMembers: true };
@@ -32,12 +32,14 @@ const getBands = async (filters) => {
   const bands = await Band.find(searchFilters)
     .populate("genre")
     .populate("instruments")
-    .populate("lookingFor");
+    .populate("lookingFor")
+    .skip(offset)
+    .limit(2);
 
   return bands;
 };
 
-const getMusicians = async (filters) => {
+const getMusicians = async (filters, offset) => {
   const constructedFilters = constructFilters(filters || {});
 
   const searchFilters = { ...constructedFilters, openToJoiningBand: true };
@@ -45,12 +47,14 @@ const getMusicians = async (filters) => {
   const musicians = await MusicianUser.find(searchFilters)
     .populate("genre")
     .populate("instruments")
-    .populate("lookingFor");
+    .populate("lookingFor")
+    .skip(offset)
+    .limit(2);
 
   return musicians;
 };
 
-const assemble = async (_, { filters }) => {
+const assemble = async (_, { filters, musiciansOffset, bandsOffset }) => {
   if (filters) {
     let cleansedFilters = {};
     Object.keys(filters).forEach((filterKey) => {
@@ -60,24 +64,24 @@ const assemble = async (_, { filters }) => {
     });
 
     if (!cleansedFilters.userType || cleansedFilters.userType.length === 2) {
-      const bands = await getBands(cleansedFilters);
-      const musicians = await getMusicians(cleansedFilters);
+      const bands = await getBands(cleansedFilters, bandsOffset);
+      const musicians = await getMusicians(cleansedFilters, musiciansOffset);
 
       return { musicians, bands };
     }
 
     if (cleansedFilters.userType[0] === "band") {
-      const bands = await getBands(cleansedFilters);
+      const bands = await getBands(cleansedFilters, bandsOffset);
       return { bands, musicians: [] };
     }
 
     if (cleansedFilters.userType[0] === "musician") {
-      const musicians = await getMusicians(cleansedFilters);
+      const musicians = await getMusicians(cleansedFilters, musiciansOffset);
       return { musicians, bands: [] };
     }
   } else {
-    const bands = await getBands();
-    const musicians = await getMusicians();
+    const bands = await getBands(_, bandsOffset);
+    const musicians = await getMusicians(_, musiciansOffset);
 
     return { musicians, bands };
   }
