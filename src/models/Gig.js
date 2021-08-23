@@ -32,7 +32,7 @@ const schema = {
   accepting: {
     type: Boolean,
     required: true,
-    default: false,
+    default: true,
   },
   performers: [
     {

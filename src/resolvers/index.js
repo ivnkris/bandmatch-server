@@ -8,6 +8,7 @@ const login = require("./login");
 const signup = require("./signup");
 const createBand = require("./createBand");
 const gigs = require("./gigs");
+const createGig = require("./createGig");
 const checkIfMusicianExists = require("./checkIfMusicianExists");
 const conversations = require("./conversations");
 const createMessage = require("./createMessage");
@@ -33,6 +34,7 @@ const resolvers = {
     createBand,
     createMessage,
     signupVenueUser,
+    createGig,
   },
 };
 
