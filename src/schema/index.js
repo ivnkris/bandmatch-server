@@ -74,8 +74,8 @@ const typeDefs = gql`
   }
 
   type Performers {
-    musician: MusicianUser
-    band: Band
+    musician: String
+    band: String
     confirmed: Boolean
   }
 
@@ -142,6 +142,7 @@ const typeDefs = gql`
     ): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
     conversations(id: ID!): [Conversation]
+    conversation(id: ID!): Conversation
     checkIfMusicianExists(
       input: checkMusicianInput!
     ): [musicianValidationOutcome]
