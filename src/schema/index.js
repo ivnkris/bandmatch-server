@@ -105,7 +105,13 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Assemble
-    collaborate(sortBy: String, top: Int, filters: Filter): Collaborate
+    collaborate(
+      sortBy: String
+      top: Int
+      filters: Filter
+      musiciansOffset: Int
+      bandsOffset: Int
+    ): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
   }
 
