@@ -147,6 +147,7 @@ const typeDefs = gql`
     checkIfMusicianExists(
       input: checkMusicianInput!
     ): [musicianValidationOutcome]
+    bands(filters: Filter): [Band]
   }
 
   input LoginInput {

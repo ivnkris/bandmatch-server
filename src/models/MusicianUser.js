@@ -83,12 +83,12 @@ const schema = {
       type: Schema.Types.ObjectId,
     },
   ],
-  bands: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Band",
-    },
-  ],
+  // bands: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Band",
+  //   },
+  // ],
 };
 
 const userSchema = new Schema(schema);

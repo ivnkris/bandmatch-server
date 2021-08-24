@@ -14,6 +14,7 @@ const conversations = require("./conversations");
 const createMessage = require("./createMessage");
 const signupVenueUser = require("./signupVenueUser");
 const conversation = require("./conversation");
+const bands = require("./bands");
 
 const resolvers = {
   Query: {
@@ -27,6 +28,7 @@ const resolvers = {
     checkIfMusicianExists,
     conversations,
     conversation,
+    bands,
   },
   Mutation: {
     login,
