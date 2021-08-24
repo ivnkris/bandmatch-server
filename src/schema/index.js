@@ -240,13 +240,19 @@ const typeDefs = gql`
     type: String!
   }
 
+  input updateMusicianUserInput {
+    musicianInfo: SignupInput!
+    musicianId: ID!
+  }
+
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
     createMessage(input: MessageInput!): Message!
     signupVenueUser(input: SignupVenueInput!): VenueAuth!
-    createGig(input: GigInput): Gig
+    createGig(input: GigInput): Gig!
+    updateMusicianUser(input: updateMusicianUserInput): MusicianUser!
   }
 `;
 

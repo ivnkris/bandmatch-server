@@ -16,6 +16,7 @@ const createMessage = require("./createMessage");
 const signupVenueUser = require("./signupVenueUser");
 const conversation = require("./conversation");
 const bands = require("./bands");
+const updateMusicianUser = require("./updateMusicianUser");
 
 const resolvers = {
   Query: {
@@ -39,6 +40,7 @@ const resolvers = {
     createMessage,
     signupVenueUser,
     createGig,
+    updateMusicianUser,
   },
 };
 
