@@ -240,8 +240,25 @@ const typeDefs = gql`
     type: String!
   }
 
+  input MusicianUserInput {
+    firstName: String
+    lastName: String
+    email: String
+    description: String
+    genre: [ID]
+    postcode: String
+    experienceLevel: String
+    instruments: [ID]
+    imageUrl: String
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [ID]
+    openToCollaboration: Boolean
+    openToJoiningBand: Boolean
+  }
+
   input updateMusicianUserInput {
-    musicianInfo: SignupInput!
+    musicianInfo: MusicianUserInput!
     musicianId: ID!
   }
 

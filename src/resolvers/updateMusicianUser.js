@@ -1,11 +1,11 @@
 const { MusicianUser } = require("../models");
 
-const updateMusicianUser = (_, { input }) => {
-  console.log(input);
-  const updatedUser = MusicianUser.findByIdAndUpdate(
-    input.musicianId,
-    input.musicianInfo
-  );
+const updateMusicianUser = async (_, { input }) => {
+  const musicianInfo = input.musicianInfo;
+  const updatedUser = await MusicianUser.findByIdAndUpdate(input.musicianId, {
+    ...musicianInfo,
+  });
+
   return updatedUser;
 };
 
