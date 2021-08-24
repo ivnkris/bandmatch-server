@@ -1,4 +1,4 @@
-const { Gig } = require("../models");
+const { Gig, MusicianUser, Band } = require("../models");
 
 const gigRequests = async (_, { id }) => {
 	const gigs = await Gig.find({ venue: id })
@@ -6,8 +6,22 @@ const gigRequests = async (_, { id }) => {
 		.populate("genre")
 		.populate("venue");
 
+	const musicians = await MusicianUser.find({}).lean();
+	const bands = await Band.find({}).lean();
+
 	const filteredGigs = gigs.map((gig) => {
 		const filteredPerformers = gig.performers.filter((each) => {
+			if (each.musician) {
+				const foundMusician = musicians.find((musician) => {
+					return musician._id == each.musician;
+				});
+				each.musicianDetails = foundMusician;
+			} else if (each.band) {
+				const foundBand = bands.find((band) => {
+					return band._id == each.band;
+				});
+				each.bandDetails = foundBand;
+			}
 			return each.confirmed === false;
 		});
 		const filteredPerformerGig = {
