@@ -7,6 +7,7 @@ const instruments = require("./instruments");
 const login = require("./login");
 const signup = require("./signup");
 const createBand = require("./createBand");
+const gig = require("./gig");
 const gigs = require("./gigs");
 const createGig = require("./createGig");
 const checkIfMusicianExists = require("./checkIfMusicianExists");
@@ -24,6 +25,7 @@ const resolvers = {
     collaborate,
     genres,
     instruments,
+    gig,
     gigs,
     checkIfMusicianExists,
     conversations,

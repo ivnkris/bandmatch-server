@@ -142,6 +142,7 @@ const typeDefs = gql`
       bandsOffset: Int
     ): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    gig(id: ID!): Gig
     conversations(id: ID!): [Conversation]
     conversation(id: ID!): Conversation
     checkIfMusicianExists(
