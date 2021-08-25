@@ -247,13 +247,36 @@ const typeDefs = gql`
     type: String!
   }
 
+  input MusicianUserInput {
+    firstName: String
+    lastName: String
+    email: String
+    description: String
+    genre: [ID]
+    postcode: String
+    experienceLevel: String
+    instruments: [ID]
+    imageUrl: String
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [ID]
+    openToCollaboration: Boolean
+    openToJoiningBand: Boolean
+  }
+
+  input updateMusicianUserInput {
+    musicianInfo: MusicianUserInput!
+    musicianId: ID!
+  }
+
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
     createBand(input: BandInput!): Band!
     createMessage(input: MessageInput!): Message!
     signupVenueUser(input: SignupVenueInput!): VenueAuth!
-    createGig(input: GigInput): Gig
+    createGig(input: GigInput): Gig!
+    updateMusicianUser(input: updateMusicianUserInput): MusicianUser!
   }
 `;
 
