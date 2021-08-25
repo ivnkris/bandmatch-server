@@ -102,11 +102,12 @@ const typeDefs = gql`
     name: String
     firstName: String
     lastName: String
+    imageUrl: String
   }
 
   type Conversation {
     id: ID!
-    participants: [ConversationParticipant]!
+    participants: [ConversationParticipant]
     messages: [Message]
   }
 
