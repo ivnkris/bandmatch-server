@@ -72,6 +72,7 @@ const typeDefs = gql`
 	}
 
 	type Performers {
+		_id: String
 		musician: String
 		band: String
 		confirmed: Boolean
@@ -272,7 +273,7 @@ const typeDefs = gql`
 	}
 
 	input updateGigRequestInput {
-		id: ID!
+		id: String
 		confirmed: Boolean
 	}
 
