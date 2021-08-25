@@ -16,7 +16,6 @@ const bandConversations = async (_, { bandId }) => {
     .populate("messages")
     .populate("participants");
 
-  console.log(bandConversations);
   return bandConversations;
 };
 
