@@ -1,5 +1,5 @@
 const { Conversation } = require("../models");
-const validateBandUser = require("../utils/validateBandUser");
+const formatConversations = require("../utils/formatConversations");
 
 const conversations = async (_, { id }) => {
   const conversations = await Conversation.find({
@@ -9,16 +9,7 @@ const conversations = async (_, { id }) => {
     .populate("bands")
     .populate("musicians");
 
-  const formattedConversations = conversations.map((conversation) => {
-    const bandParticipants = conversation.bands || [];
-    const musicianParticipants = conversation.musicians || [];
-
-    return {
-      id: conversation._id,
-      participants: [...bandParticipants, ...musicianParticipants],
-      messages: conversation.messages,
-    };
-  });
+  const formattedConversations = conversations.map(formatConversations);
 
   return formattedConversations;
 };
@@ -28,10 +19,12 @@ const bandConversations = async (_, { bandId }) => {
     bands: { $in: bandId },
   })
     .populate("messages")
-    .populate("participants")
-    .populate("bandParticipants");
+    .populate("bands")
+    .populate("musicians");
 
-  return bandConversations;
+  const formattedConversations = bandConversations.map(formatConversations);
+
+  return formattedConversations;
 };
 
 module.exports = {
