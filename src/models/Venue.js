@@ -1,6 +1,30 @@
 const { Schema, model } = require("mongoose");
 
+const { hashPassword, validatePassword } = require("../utils/password");
+
 const schema = {
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  firstName: {
+    type: String,
+    required: false,
+  },
+  lastName: {
+    type: String,
+    required: false,
+  },
+  isPremium: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   name: {
     type: String,
     required: false,
@@ -26,6 +50,10 @@ const schema = {
 };
 
 const venueSchema = new Schema(schema);
+
+venueSchema.pre("save", hashPassword);
+
+venueSchema.methods.validatePassword = validatePassword;
 
 const Venue = model("Venue", venueSchema);
 

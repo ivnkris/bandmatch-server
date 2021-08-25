@@ -19,6 +19,7 @@ const createMessage = require("./createMessage");
 const signupVenueUser = require("./signupVenueUser");
 const conversation = require("./conversation");
 const bands = require("./bands");
+const venue = require("./venue");
 
 const resolvers = {
   Query: {
@@ -36,6 +37,7 @@ const resolvers = {
     conversations,
     conversation,
     bands,
+    venue,
     gigRequests,
   },
   Mutation: {
