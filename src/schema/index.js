@@ -132,6 +132,7 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Assemble
+    assembleCarousel(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(
       sortBy: String
       top: Int
@@ -139,6 +140,7 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Collaborate
+    collaborateCarousel(sortBy: String, top: Int, filters: Filter): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
     gig(id: ID!): Gig
     conversations(id: ID!): [Conversation]
