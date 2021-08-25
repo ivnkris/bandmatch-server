@@ -14,7 +14,7 @@ const gigs = require("./gigs");
 const gigRequests = require("./gigRequests");
 const createGig = require("./createGig");
 const checkIfMusicianExists = require("./checkIfMusicianExists");
-const conversations = require("./conversations");
+const { conversations, bandConversations } = require("./conversations");
 const createMessage = require("./createMessage");
 const signupVenueUser = require("./signupVenueUser");
 const conversation = require("./conversation");
@@ -40,6 +40,7 @@ const resolvers = {
     bands,
     venue,
     gigRequests,
+    bandConversations,
   },
   Mutation: {
     login,
