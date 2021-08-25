@@ -214,6 +214,7 @@ const typeDefs = gql`
     email: String
     firstName: String
     lastName: String
+    name: String
   }
 
   input checkMusicianInput {

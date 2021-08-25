@@ -12,6 +12,10 @@ const login = async (_, { input }) => {
   if (!musicianUser) {
     const venueUser = await Venue.findOne({ email });
 
+    if (!venueUser) {
+      throw new AuthenticationError("User does not exist");
+    }
+
     const isValidPassword = await venueUser.validatePassword(password);
 
     if (!isValidPassword) {
@@ -21,10 +25,6 @@ const login = async (_, { input }) => {
     const token = tokenise({ id: venueUser.id, email: venueUser.email });
 
     return { token, user: venueUser, type: "venue" };
-
-    if (!venueUser) {
-      throw new AuthenticationError("User does not exist");
-    }
   }
 
   const isValidPassword = await musicianUser.validatePassword(password);
