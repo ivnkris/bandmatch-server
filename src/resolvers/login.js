@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 
-const { MusicianUser, VenueUser } = require("../models");
+const { MusicianUser, Venue } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
 
@@ -10,7 +10,11 @@ const login = async (_, { input }) => {
   const musicianUser = await MusicianUser.findOne({ email });
 
   if (!musicianUser) {
-    const venueUser = await VenueUser.findOne({ email });
+    const venueUser = await Venue.findOne({ email });
+
+    if (!venueUser) {
+      throw new AuthenticationError("User does not exist");
+    }
 
     const isValidPassword = await venueUser.validatePassword(password);
 
@@ -21,10 +25,6 @@ const login = async (_, { input }) => {
     const token = tokenise({ id: venueUser.id, email: venueUser.email });
 
     return { token, user: venueUser, type: "venue" };
-
-    if (!venueUser) {
-      throw new AuthenticationError("User does not exist");
-    }
   }
 
   const isValidPassword = await musicianUser.validatePassword(password);

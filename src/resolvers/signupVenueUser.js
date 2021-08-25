@@ -1,9 +1,9 @@
-const { VenueUser } = require("../models");
+const { Venue } = require("../models");
 
 const { tokenise } = require("../utils/tokenise");
 
 const signupVenueUser = async (_, { input }) => {
-  const user = await VenueUser.create(input);
+  const user = await Venue.create(input);
 
   const token = tokenise({ id: user.id, email: user.email });
 

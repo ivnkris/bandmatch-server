@@ -48,15 +48,6 @@ const typeDefs = gql`
     musicians: [MusicianUser]
   }
 
-  type VenueUser {
-    id: ID
-    email: String
-    firstName: String
-    lastName: String
-    imageUrl: String
-    members: [MusicianUser]
-  }
-
   type Assemble {
     musicians: [MusicianUser]
     bands: [Band]
@@ -69,8 +60,15 @@ const typeDefs = gql`
 
   type Venue {
     id: ID!
+    email: String
+    firstName: String
+    lastName: String
+    isPremium: Boolean
     name: String!
     postcode: String!
+    photoUrl: String
+    description: String
+    websiteUrl: String
   }
 
   type Performers {
@@ -124,7 +122,7 @@ const typeDefs = gql`
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
-    venueUser(id: ID!): VenueUser
+    venue(id: ID!): Venue
     genres: [Genre]
     instruments: [Instrument]
     assemble(
@@ -134,6 +132,7 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Assemble
+    assembleCarousel(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(
       sortBy: String
       top: Int
@@ -141,6 +140,7 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Collaborate
+    collaborateCarousel(sortBy: String, top: Int, filters: Filter): Collaborate
     gigs(sortBy: String, top: Int, filters: Filter): [Gig]
     gig(id: ID!): Gig
     conversations(id: ID!): [Conversation]
@@ -149,6 +149,7 @@ const typeDefs = gql`
       input: checkMusicianInput!
     ): [musicianValidationOutcome]
     bands(filters: Filter): [Band]
+    gigRequests(id: ID!): [Gig]
   }
 
   input LoginInput {
@@ -180,7 +181,12 @@ const typeDefs = gql`
     password: String!
     firstName: String!
     lastName: String!
-    imageUrl: String
+    isPremium: Boolean
+    name: String!
+    postcode: String!
+    photoUrl: String
+    description: String
+    websiteUrl: String
   }
 
   input BandInput {
@@ -211,6 +217,7 @@ const typeDefs = gql`
     email: String
     firstName: String
     lastName: String
+    name: String
   }
 
   input checkMusicianInput {
@@ -236,7 +243,7 @@ const typeDefs = gql`
 
   type VenueAuth {
     token: ID!
-    user: VenueUser!
+    user: Venue!
     type: String!
   }
 
