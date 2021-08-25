@@ -2,7 +2,6 @@ const db = require("../config/connection");
 const {
   MusicianUser,
   Band,
-  VenueUser,
   Venue,
   Gig,
   Instrument,
@@ -12,7 +11,6 @@ const {
 const {
   musicianUsers,
   bands,
-  venueUsers,
   venues,
   gigs,
   instruments,
@@ -25,7 +23,6 @@ db.once("open", async () => {
     await Band.deleteMany({});
     await Instrument.deleteMany({});
     await Genre.deleteMany({});
-    await VenueUser.deleteMany({});
     await Venue.deleteMany({});
     await Gig.deleteMany({});
     console.log("Collections deleted!!!");
@@ -98,7 +95,12 @@ db.once("open", async () => {
 
     // seed venues
 
-    await Venue.insertMany(venues);
+    const venuePromises = venues.map((venue) => {
+      return Venue.create(venue);
+    });
+
+    await Promise.all(venuePromises);
+
     console.log("Venues seeded successfully!!!");
 
     const venuesFromDb = await Venue.find({});
@@ -127,20 +129,6 @@ db.once("open", async () => {
     console.log("Gigs seeded successfully!!!");
 
     const gigsFromDb = await Gig.find({});
-
-    //seed venue users
-    const venueUsersToSeed = venueUsers.map((venueUser) => {
-      return {
-        ...venueUser,
-        venue: [
-          venuesFromDb[randomIndex(venuesFromDb.length)]._id,
-          venuesFromDb[randomIndex(venuesFromDb.length)]._id,
-        ],
-      };
-    });
-
-    await VenueUser.insertMany(venueUsersToSeed);
-    console.log("Venue Users seeded successfully!!!");
 
     process.exit(0);
   } catch (error) {

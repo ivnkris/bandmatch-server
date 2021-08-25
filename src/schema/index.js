@@ -48,15 +48,6 @@ const typeDefs = gql`
     musicians: [MusicianUser]
   }
 
-  type VenueUser {
-    id: ID
-    email: String
-    firstName: String
-    lastName: String
-    imageUrl: String
-    members: [MusicianUser]
-  }
-
   type Assemble {
     musicians: [MusicianUser]
     bands: [Band]
@@ -69,8 +60,15 @@ const typeDefs = gql`
 
   type Venue {
     id: ID!
+    email: String
+    firstName: String
+    lastName: String
+    isPremium: Boolean
     name: String!
     postcode: String!
+    photoUrl: String
+    description: String
+    websiteUrl: String
   }
 
   type Performers {
@@ -124,7 +122,7 @@ const typeDefs = gql`
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
-    venueUser(id: ID!): VenueUser
+    venue(id: ID!): Venue
     genres: [Genre]
     instruments: [Instrument]
     assemble(
@@ -180,7 +178,12 @@ const typeDefs = gql`
     password: String!
     firstName: String!
     lastName: String!
-    imageUrl: String
+    isPremium: Boolean
+    name: String!
+    postcode: String!
+    photoUrl: String
+    description: String
+    websiteUrl: String
   }
 
   input BandInput {
@@ -236,7 +239,7 @@ const typeDefs = gql`
 
   type VenueAuth {
     token: ID!
-    user: VenueUser!
+    user: Venue!
     type: String!
   }
 
