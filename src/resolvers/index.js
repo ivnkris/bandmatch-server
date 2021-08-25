@@ -21,35 +21,37 @@ const conversation = require("./conversation");
 const bands = require("./bands");
 const updateMusicianUser = require("./updateMusicianUser");
 const venue = require("./venue");
+const updateGigRequest = require("./updateGigRequest");
 
 const resolvers = {
-  Query: {
-    musicianUser,
-    band,
-    assemble,
-    assembleCarousel,
-    collaborate,
-    collaborateCarousel,
-    genres,
-    instruments,
-    gig,
-    gigs,
-    checkIfMusicianExists,
-    conversations,
-    conversation,
-    bands,
-    venue,
-    gigRequests,
-  },
-  Mutation: {
-    login,
-    signup,
-    createBand,
-    createMessage,
-    signupVenueUser,
-    createGig,
-    updateMusicianUser,
-  },
+	Query: {
+		musicianUser,
+		band,
+		assemble,
+		assembleCarousel,
+		collaborate,
+		collaborateCarousel,
+		genres,
+		instruments,
+		gig,
+		gigs,
+		checkIfMusicianExists,
+		conversations,
+		conversation,
+		bands,
+		venue,
+		gigRequests,
+	},
+	Mutation: {
+		login,
+		signup,
+		createBand,
+		createMessage,
+		signupVenueUser,
+		createGig,
+		updateMusicianUser,
+		updateGigRequest,
+	},
 };
 
 module.exports = resolvers;
