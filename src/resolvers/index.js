@@ -9,6 +9,7 @@ const signup = require("./signup");
 const createBand = require("./createBand");
 const gig = require("./gig");
 const gigs = require("./gigs");
+const gigRequests = require("./gigRequests");
 const createGig = require("./createGig");
 const checkIfMusicianExists = require("./checkIfMusicianExists");
 const conversations = require("./conversations");
@@ -18,28 +19,29 @@ const conversation = require("./conversation");
 const bands = require("./bands");
 
 const resolvers = {
-  Query: {
-    musicianUser,
-    band,
-    assemble,
-    collaborate,
-    genres,
-    instruments,
-    gig,
-    gigs,
-    checkIfMusicianExists,
-    conversations,
-    conversation,
-    bands,
-  },
-  Mutation: {
-    login,
-    signup,
-    createBand,
-    createMessage,
-    signupVenueUser,
-    createGig,
-  },
+	Query: {
+		musicianUser,
+		band,
+		assemble,
+		collaborate,
+		genres,
+		instruments,
+		gig,
+		gigs,
+		checkIfMusicianExists,
+		conversations,
+		conversation,
+		bands,
+		gigRequests,
+	},
+	Mutation: {
+		login,
+		signup,
+		createBand,
+		createMessage,
+		signupVenueUser,
+		createGig,
+	},
 };
 
 module.exports = resolvers;
