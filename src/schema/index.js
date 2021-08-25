@@ -277,6 +277,17 @@ const typeDefs = gql`
 		confirmed: Boolean
 	}
 
+	input PerformersInput {
+		musician: String
+		band: String
+		confirmed: Boolean
+	}
+
+	input createGigRequestInput {
+		id: String
+		performer: PerformersInput
+	}
+
 	type Mutation {
 		login(input: LoginInput!): Auth!
 		signup(input: SignupInput!): Auth!
@@ -286,6 +297,7 @@ const typeDefs = gql`
 		createGig(input: GigInput): Gig!
 		updateMusicianUser(input: updateMusicianUserInput): MusicianUser!
 		updateGigRequest(input: updateGigRequestInput): Gig!
+		createGigRequest(input: createGigRequestInput): Gig!
 	}
 `;
 
