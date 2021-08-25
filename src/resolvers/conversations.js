@@ -1,20 +1,35 @@
 const { Conversation } = require("../models");
+const validateBandUser = require("../utils/validateBandUser");
 
 const conversations = async (_, { id }) => {
   const conversations = await Conversation.find({
-    participants: { $in: id },
+    musicians: { $in: id },
   })
     .populate("messages")
-    .populate("participants");
-  return conversations;
+    .populate("bands")
+    .populate("musicians");
+
+  const formattedConversations = conversations.map((conversation) => {
+    const bandParticipants = conversation.bands || [];
+    const musicianParticipants = conversation.musicians || [];
+
+    return {
+      id: conversation._id,
+      participants: [...bandParticipants, ...musicianParticipants],
+      messages: conversation.messages,
+    };
+  });
+
+  return formattedConversations;
 };
 
 const bandConversations = async (_, { bandId }) => {
   const bandConversations = await Conversation.find({
-    participants: { $in: bandId },
+    bands: { $in: bandId },
   })
     .populate("messages")
-    .populate("participants");
+    .populate("participants")
+    .populate("bandParticipants");
 
   return bandConversations;
 };
