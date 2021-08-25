@@ -22,6 +22,7 @@ const bands = require("./bands");
 const updateMusicianUser = require("./updateMusicianUser");
 const venue = require("./venue");
 const createGigRequest = require("./createGigRequest");
+const updateGigRequest = require("./updateGigRequest");
 
 const resolvers = {
 	Query: {
@@ -51,6 +52,7 @@ const resolvers = {
 		createGig,
 		updateMusicianUser,
 		createGigRequest,
+		updateGigRequest,
 	},
 };
 
