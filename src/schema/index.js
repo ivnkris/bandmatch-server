@@ -97,9 +97,16 @@ const typeDefs = gql`
     text: String!
   }
 
+  type ConversationParticipant {
+    id: ID!
+    name: String
+    firstName: String
+    lastName: String
+  }
+
   type Conversation {
     id: ID!
-    participants: [MusicianUser]!
+    participants: [ConversationParticipant]!
     messages: [Message]
   }
 
