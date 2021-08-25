@@ -1,14 +1,16 @@
 const { Schema, model } = require("mongoose");
 
 const schema = {
-  participants: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "MusicianUser",
-    },
+  bands: [
     {
       type: Schema.Types.ObjectId,
       ref: "Band",
+    },
+  ],
+  musicians: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "MusicianUser",
     },
   ],
   messages: [
