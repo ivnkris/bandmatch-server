@@ -1,6 +1,7 @@
 const musicianUser = require("./musicianUser");
 const band = require("./band");
 const assemble = require("./assemble");
+const assembleCarousel = require("./assembleCarousel");
 const collaborate = require("./collaborate");
 const genres = require("./genres");
 const instruments = require("./instruments");
@@ -22,6 +23,7 @@ const resolvers = {
     musicianUser,
     band,
     assemble,
+    assembleCarousel,
     collaborate,
     genres,
     instruments,

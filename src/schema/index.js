@@ -134,6 +134,7 @@ const typeDefs = gql`
       musiciansOffset: Int
       bandsOffset: Int
     ): Assemble
+    assembleCarousel(sortBy: String, top: Int, filters: Filter): Assemble
     collaborate(
       sortBy: String
       top: Int
