@@ -151,6 +151,7 @@ const typeDefs = gql`
       input: checkMusicianInput!
     ): [musicianValidationOutcome]
     bands(filters: Filter): [Band]
+    gigRequests(id: ID!): [Gig]
   }
 
   input LoginInput {
