@@ -273,8 +273,6 @@ const typeDefs = gql`
 
 	input updateGigRequestInput {
 		id: ID!
-		musicianId: String
-		bandId: String
 		confirmed: Boolean
 	}
 
