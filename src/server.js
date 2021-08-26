@@ -26,21 +26,7 @@ startServer();
 
 app.use(cors());
 
-if (process.env.NODE_ENV === "production") {
-  app.use(
-    express.static(
-      path.join(__dirname, "https://arcane-springs-60231.herokuapp.com/")
-    )
-  );
-}
-
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "https://arcane-springs-60231.herokuapp.com/")
-  );
-});
-
-const http = db.once("open", () => {
+db.once("open", () => {
   app.listen(PORT, () =>
     console.log(
       `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
