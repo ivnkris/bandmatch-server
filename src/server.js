@@ -2,6 +2,7 @@ const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const socketIo = require("socket.io");
 const cors = require("cors");
+const path = require("path");
 
 const db = require("./config/connection");
 
