@@ -307,7 +307,7 @@ const typeDefs = gql`
     updateGigRequest(input: updateGigRequestInput): Gig!
     createGigRequest(input: createGigRequestInput): Gig!
     deleteBand(input: deleteBandInput): Band
-    deleteGig(input: deleteGigInput): Gig
+    deleteGig(input: deleteGigInput): ID
   }
 `;
 

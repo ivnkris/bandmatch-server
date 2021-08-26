@@ -1,9 +1,9 @@
 const { Gig } = require("../models");
 
-const deleteGig = async (_, { id }) => {
-  const gig = await Gig.deleteOne({ id });
+const deleteGig = async (_, { input }) => {
+  const gig = await Gig.deleteOne({ _id: input.id });
 
-  return gig;
+  return input.id;
 };
 
 module.exports = deleteGig;
