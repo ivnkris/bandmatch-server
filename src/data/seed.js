@@ -114,11 +114,11 @@ db.once("open", async () => {
         performers: [
           {
             musician: musiciansFromDb[randomIndex(musiciansFromDb.length)]._id,
-            confirmed: true,
+            confirmed: "pending",
           },
           {
             band: bandsFromDb[randomIndex(bandsFromDb.length)]._id,
-            confirmed: false,
+            confirmed: "true",
           },
         ],
         venue: venuesFromDb[randomIndex(venuesFromDb.length)]._id,

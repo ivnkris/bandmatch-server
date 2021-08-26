@@ -45,9 +45,9 @@ const schema = {
       },
 
       confirmed: {
-        type: Boolean,
-        required: true,
-        default: false,
+        type: String,
+        enum: ["true", "false", "pending"],
+        default: "pending",
       },
     },
   ],
