@@ -1,9 +1,11 @@
 const { Gig } = require("../models");
 
-const gigs = async (_, { filters }) => {
+const gigs = async (_, { filters, gigsOffset }) => {
   const gigs = await Gig.find({ accepting: true })
     .populate("genre")
-    .populate("venue");
+    .populate("venue")
+    .skip(gigsOffset)
+    .limit(2);
 
   if (filters) {
     const filteredGigs = gigs.filter((gig) => {

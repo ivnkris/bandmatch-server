@@ -75,7 +75,7 @@ const typeDefs = gql`
     _id: String
     musician: String
     band: String
-    confirmed: Boolean
+    confirmed: String
     musicianDetails: MusicianUser
     bandDetails: Band
   }
@@ -144,7 +144,7 @@ const typeDefs = gql`
       bandsOffset: Int
     ): Collaborate
     collaborateCarousel(sortBy: String, top: Int, filters: Filter): Collaborate
-    gigs(sortBy: String, top: Int, filters: Filter): [Gig]
+    gigs(sortBy: String, top: Int, filters: Filter, gigsOffset: Int): [Gig]
     gig(id: ID!): Gig
     conversations(id: ID!): [Conversation]
     conversation(id: ID!): Conversation
@@ -274,13 +274,13 @@ const typeDefs = gql`
 
   input updateGigRequestInput {
     id: String
-    confirmed: Boolean
+    confirmed: String
   }
 
   input PerformersInput {
     musician: String
     band: String
-    confirmed: Boolean
+    confirmed: String
   }
 
   input createGigRequestInput {
