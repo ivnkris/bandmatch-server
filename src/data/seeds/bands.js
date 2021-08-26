@@ -8,7 +8,8 @@ const bands = [
       "https://images.unsplash.com/photo-1504637929313-c8eebe7c27af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=748&q=80",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: false,
     openToCollaboration: false,
     websiteUrl: "",
@@ -23,7 +24,8 @@ const bands = [
     name: "Miami Panic",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: false,
     openToCollaboration: true,
     websiteUrl: "",
@@ -38,7 +40,8 @@ const bands = [
     name: "FiveDust",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/idi-hd/idi-akz-two-years-clear-full",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: true,
     openToCollaboration: true,
     websiteUrl: "",
@@ -53,7 +56,8 @@ const bands = [
     name: "Daring Dolls",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/user-646137808/arz-alone-with-you",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: true,
     openToCollaboration: true,
     websiteUrl: "",
@@ -68,7 +72,8 @@ const bands = [
     name: "Wild Wild",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/santandave/clash-feat-stormzy",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: true,
     openToCollaboration: false,
     websiteUrl: "",
@@ -83,7 +88,8 @@ const bands = [
     name: "Taking Back Autumn",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/santandave/clash-feat-stormzy",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: false,
     openToCollaboration: true,
     websiteUrl: "",
@@ -98,7 +104,8 @@ const bands = [
     name: "Keyback",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: true,
     openToCollaboration: false,
     websiteUrl: "",
@@ -113,7 +120,8 @@ const bands = [
     name: "Pineapple Fighters",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: false,
     openToCollaboration: true,
     websiteUrl: "",
@@ -128,7 +136,8 @@ const bands = [
     name: "Chris and Sons",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: true,
     openToCollaboration: false,
     websiteUrl: "",
@@ -143,7 +152,8 @@ const bands = [
     name: "Blue Bottlesica",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
-    soundCloudUrl: "https://soundcloud.com/becky-hill-official/remember",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
     openToMembers: false,
     openToCollaboration: true,
     websiteUrl: "",
