@@ -288,6 +288,14 @@ const typeDefs = gql`
     performer: PerformersInput
   }
 
+  input deleteBandInput {
+    id: String
+  }
+
+  input deleteGigInput {
+    id: String
+  }
+
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
@@ -298,6 +306,8 @@ const typeDefs = gql`
     updateMusicianUser(input: updateMusicianUserInput): MusicianUser!
     updateGigRequest(input: updateGigRequestInput): Gig!
     createGigRequest(input: createGigRequestInput): Gig!
+    deleteBand(input: deleteBandInput): Band
+    deleteGig(input: deleteGigInput): ID
   }
 `;
 
