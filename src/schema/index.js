@@ -227,6 +227,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     name: String
+    bands: [ID]
   }
 
   input checkMusicianInput {
