@@ -24,6 +24,7 @@ const venue = require("./venue");
 const createGigRequest = require("./createGigRequest");
 const updateGigRequest = require("./updateGigRequest");
 const deleteBand = require("./deleteBand");
+const deleteGig = require("./deleteGig");
 
 const resolvers = {
   Query: {
@@ -55,6 +56,7 @@ const resolvers = {
     createGigRequest,
     updateGigRequest,
     deleteBand,
+    deleteGig,
   },
 };
 

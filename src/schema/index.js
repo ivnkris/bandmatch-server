@@ -292,6 +292,10 @@ const typeDefs = gql`
     id: String
   }
 
+  input deleteGigInput {
+    id: String
+  }
+
   type Mutation {
     login(input: LoginInput!): Auth!
     signup(input: SignupInput!): Auth!
@@ -303,6 +307,7 @@ const typeDefs = gql`
     updateGigRequest(input: updateGigRequestInput): Gig!
     createGigRequest(input: createGigRequestInput): Gig!
     deleteBand(input: deleteBandInput): Band
+    deleteGig(input: deleteGigInput): Gig
   }
 `;
 
