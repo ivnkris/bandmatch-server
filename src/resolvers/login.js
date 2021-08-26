@@ -49,8 +49,6 @@ const login = async (_, { input }) => {
     musicianUser.id = musicianUser._id;
   }
 
-  console.log("returning", musicianUser);
-
   return { token, user: musicianUser, type: "musician" };
 };
 
