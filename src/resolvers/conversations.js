@@ -14,17 +14,23 @@ const conversations = async (_, { id }) => {
   return formattedConversations;
 };
 
-const bandConversations = async (_, { bandId }) => {
-  const bandConversations = await Conversation.find({
-    bands: { $in: bandId },
-  })
-    .populate("messages")
-    .populate("bands")
-    .populate("musicians");
+const bandConversations = async (_, { bandIds }) => {
+  const conversationPromises = bandIds.map(async (bandId) => {
+    const bandConversations = await Conversation.find({
+      bands: { $in: bandId },
+    })
+      .populate("messages")
+      .populate("bands")
+      .populate("musicians");
 
-  const formattedConversations = bandConversations.map(formatConversations);
+    return {
+      conversations: bandConversations.map(formatConversations),
+    };
+  });
 
-  return formattedConversations;
+  const conversations = await Promise.all(conversationPromises);
+
+  return conversations;
 };
 
 module.exports = {

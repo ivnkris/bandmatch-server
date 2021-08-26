@@ -127,6 +127,10 @@ const typeDefs = gql`
     band: String
   }
 
+  type bandConversations {
+    conversations: [Conversation]
+  }
+
   type Query {
     musicianUser(id: ID!): MusicianUser
     band(id: ID!): Band
@@ -158,7 +162,7 @@ const typeDefs = gql`
     ): [musicianValidationOutcome]
     bands(filters: Filter): [Band]
     gigRequests(id: ID!): [Gig]
-    bandConversations(bandId: ID!): [Conversation]
+    bandConversations(bandIds: [ID]): [bandConversations]
   }
 
   input LoginInput {
@@ -202,7 +206,7 @@ const typeDefs = gql`
     name: String!
     description: String!
     location: String!
-    genre: [ID]!
+    genre: [ID!]
     experienceLevel: String!
     numberOfMembers: Int!
     instruments: [ID]
