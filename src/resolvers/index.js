@@ -25,6 +25,7 @@ const createGigRequest = require("./createGigRequest");
 const updateGigRequest = require("./updateGigRequest");
 const deleteBand = require("./deleteBand");
 const deleteGig = require("./deleteGig");
+const musicians = require("./musicians");
 
 const resolvers = {
   Query: {
@@ -44,6 +45,7 @@ const resolvers = {
     bands,
     venue,
     gigRequests,
+    musicians,
   },
   Mutation: {
     login,

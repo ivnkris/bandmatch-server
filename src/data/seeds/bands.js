@@ -146,15 +146,95 @@ const bands = [
   {
     location: "Birmingham",
     experienceLevel: "midway",
-    numberOfMembers: 4,
+    numberOfMembers: 6,
     imageUrl:
-      "https://images.unsplash.com/photo-1598387846419-a2c870ad3ecd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80",
-    name: "Blue Bottlesica",
+      "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=666&q=80",
+    name: "Keyhead",
     description:
       "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
     soundCloudUrl:
       "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
-    openToMembers: false,
+    openToMembers: true,
+    openToCollaboration: true,
+    websiteUrl: "",
+    gigs: [],
+  },
+  {
+    location: "Birmingham",
+    experienceLevel: "newbie",
+    numberOfMembers: 4,
+    imageUrl:
+      "https://images.unsplash.com/photo-1521547418549-6a31aad7c177?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    name: "The Unspeakable Service",
+    description:
+      "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+    openToMembers: true,
+    openToCollaboration: true,
+    websiteUrl: "",
+    gigs: [],
+  },
+  {
+    location: "Birmingham",
+    experienceLevel: "midway",
+    numberOfMembers: 2,
+    imageUrl:
+      "https://images.unsplash.com/photo-1583470037890-73cc6850b7eb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
+    name: "Unspeakable Winter",
+    description:
+      "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+    openToMembers: true,
+    openToCollaboration: true,
+    websiteUrl: "",
+    gigs: [],
+  },
+  {
+    location: "Birmingham",
+    experienceLevel: "newbie",
+    numberOfMembers: 3,
+    imageUrl:
+      "https://images.unsplash.com/photo-1503528108408-87b0d1c2b785?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=574&q=80",
+    name: "Purely Blue",
+    description:
+      "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+    openToMembers: true,
+    openToCollaboration: true,
+    websiteUrl: "",
+    gigs: [],
+  },
+  {
+    location: "Birmingham",
+    experienceLevel: "expert",
+    numberOfMembers: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1512404871764-1cf03a297841?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    name: "Four Snakes",
+    description:
+      "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+    openToMembers: true,
+    openToCollaboration: true,
+    websiteUrl: "",
+    gigs: [],
+  },
+  {
+    location: "Birmingham",
+    experienceLevel: "midway",
+    numberOfMembers: 4,
+    imageUrl:
+      "https://images.unsplash.com/photo-1619378879648-2a5aa45eecad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    name: "Torch Fighters",
+    description:
+      "Nullam a dolor vitae ipsum pulvinar placerat. Cras malesuada, lectus et pharetra pharetra, nisl ante fermentum dui, vitae hendrerit odio mi ut neque. Aliquam vel justo accumsan, ultrices dolor non, lacinia velit. Mauris quis viverra ipsum, in mattis nunc. Nam et turpis lorem. Suspendisse elit mauris, suscipit id nisl id, vehicula congue ante. Pellentesque interdum ipsum eu aliquam cursus. Aliquam erat volutpat. Duis vitae ante vitae eros egestas iaculis id at ipsum. Vivamus at lorem viverra, elementum velit at, accumsan sapien.",
+    soundCloudUrl:
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1104172975&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+    openToMembers: true,
     openToCollaboration: true,
     websiteUrl: "",
     gigs: [],

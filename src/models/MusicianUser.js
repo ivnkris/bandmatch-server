@@ -29,7 +29,7 @@ const schema = {
     required: true,
     default: false,
   },
-  postcode: {
+  location: {
     type: String,
     required: false,
   },
@@ -41,7 +41,7 @@ const schema = {
   ],
   experienceLevel: {
     type: String,
-    enum: ["newbie", "amateur", "expert"],
+    enum: ["newbie", "midway", "expert"],
     required: true,
   },
   instruments: [
