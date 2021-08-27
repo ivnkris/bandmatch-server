@@ -207,7 +207,7 @@ const typeDefs = gql`
     lookingFor: [ID]
     openToCollaboration: Boolean
     openToMembers: Boolean
-    members: [ID]
+    musicians: [ID]
   }
 
   input MessageInput {

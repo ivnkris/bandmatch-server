@@ -22,7 +22,6 @@ const checkIfMusicianExists = async (_, { input }) => {
 
   const musicianValidationOutcome = await Promise.all(musicianValidationArray);
 
-  console.log(musicianValidationOutcome);
   return musicianValidationOutcome;
 };
 
