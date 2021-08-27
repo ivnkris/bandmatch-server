@@ -18,7 +18,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     description: String
-    postcode: String
+    location: String
     genre: [Genre]
     experienceLevel: String
     instruments: [Instrument]
@@ -153,6 +153,7 @@ const typeDefs = gql`
     ): [musicianValidationOutcome]
     bands(filters: Filter): [Band]
     gigRequests(id: ID!): [Gig]
+    musicians: [MusicianUser]
   }
 
   input LoginInput {
@@ -167,7 +168,7 @@ const typeDefs = gql`
     lastName: String!
     description: String!
     isPremium: Boolean!
-    postcode: String
+    location: String
     genre: [String]
     experienceLevel: String!
     instruments: [String]
@@ -256,7 +257,7 @@ const typeDefs = gql`
     email: String
     description: String
     genre: [ID]
-    postcode: String
+    location: String
     experienceLevel: String
     instruments: [ID]
     imageUrl: String
