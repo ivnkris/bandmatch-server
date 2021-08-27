@@ -5,7 +5,7 @@ const gigs = async (_, { filters, gigsOffset }) => {
     .populate("genre")
     .populate("venue")
     .skip(gigsOffset)
-    .limit(2);
+    .limit(6);
 
   if (filters) {
     const filteredGigs = gigs.filter((gig) => {

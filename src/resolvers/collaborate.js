@@ -34,7 +34,7 @@ const getBands = async (filters, offset) => {
     .populate("instruments")
     .populate("lookingFor")
     .skip(offset)
-    .limit(2);
+    .limit(6);
 
   return bands;
 };
@@ -49,7 +49,7 @@ const getMusicians = async (filters, offset) => {
     .populate("instruments")
     .populate("lookingFor")
     .skip(offset)
-    .limit(2);
+    .limit(6);
 
   return musicians;
 };
