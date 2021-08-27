@@ -21,6 +21,7 @@ const constructFilters = (filters) => {
     }
   }, {});
 
+  console.log(filterObject);
   return filterObject;
 };
 

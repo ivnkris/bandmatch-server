@@ -120,6 +120,7 @@ const typeDefs = gql`
     experienceLevel: [String]
     musician: String
     band: String
+    location: [String]
   }
 
   type Query {
