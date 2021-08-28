@@ -49,6 +49,8 @@ For this project we used the following technologies:
 
 ## End Points
 
+View available queries and mutations [here](https://docs.google.com/spreadsheets/d/1tLDPIs9RsKLLs5Q1hsaixpO3TORZ0wcH-l5j7hNJIN0/edit?usp=sharing).
+
 ## Contributors
 
 - Dominika: https://github.com/dominikacookies
