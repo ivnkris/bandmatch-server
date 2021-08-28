@@ -127,6 +127,12 @@ const typeDefs = gql`
     band: String
   }
 
+  type bandConversation {
+    id: ID!
+    musicians: [ConversationParticipant]
+    messages: [Message]
+  }
+
   type bandConversations {
     bandName: String
     conversations: [Conversation]
