@@ -7,10 +7,9 @@
   - [Installation](#installation)
   - [Data Set](#data-set)
   - [Launch the server](#launch-the-server)
-- [Contributors](#contributors)
-  - [Technologies Used](#technologies-used)
+- [Technologies Used](#technologies-used)
 - [End Points](#end-points)
-- [Plans for Improvement](#plans-for-improvement)
+- [Contributors](#contributors)
 
 ## Project Link
 
@@ -40,14 +39,7 @@ npm run seed
 npm run start
 ```
 
-## Contributors
-
-- Dominika: https://github.com/dominikacookies
-- Natasha: https://github.com/natasha-mann
-- Kris: https://github.com/ivnkris
-- Soumeya: https://github.com/SoumeyaH
-
-### Technologies Used
+## Technologies Used
 
 For this project we used the following technologies:
 
@@ -57,4 +49,9 @@ For this project we used the following technologies:
 
 ## End Points
 
-## Plans for Improvement
+## Contributors
+
+- Dominika: https://github.com/dominikacookies
+- Natasha: https://github.com/natasha-mann
+- Kris: https://github.com/ivnkris
+- Soumeya: https://github.com/SoumeyaH
