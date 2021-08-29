@@ -121,6 +121,7 @@ const typeDefs = gql`
     musician: String
     band: String
     location: [String]
+    venue: String
   }
 
   type Query {
