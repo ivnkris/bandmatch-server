@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { v4: uuidv4 } = require("uuid");
 
 const { MusicianUser, Band } = require("../models");
 
@@ -21,7 +22,6 @@ const constructFilters = (filters) => {
     }
   }, {});
 
-  console.log(filterObject);
   return filterObject;
 };
 
@@ -56,6 +56,7 @@ const getMusicians = async (filters, offset) => {
 };
 
 const assemble = async (_, { filters, musiciansOffset, bandsOffset }) => {
+  const id = uuidv4();
   if (filters) {
     let cleansedFilters = {};
     Object.keys(filters).forEach((filterKey) => {
@@ -84,7 +85,7 @@ const assemble = async (_, { filters, musiciansOffset, bandsOffset }) => {
     const bands = await getBands(_, bandsOffset);
     const musicians = await getMusicians(_, musiciansOffset);
 
-    return { musicians, bands };
+    return { id, musicians, bands };
   }
 };
 
