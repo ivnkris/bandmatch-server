@@ -49,11 +49,13 @@ const typeDefs = gql`
   }
 
   type Assemble {
+    id: ID
     musicians: [MusicianUser]
     bands: [Band]
   }
 
   type Collaborate {
+    id: ID
     musicians: [MusicianUser]
     bands: [Band]
   }
