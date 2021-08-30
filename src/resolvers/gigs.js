@@ -16,9 +16,9 @@ const gigs = async (_, { filters, gigsOffset }) => {
     if (filters.musician || filters.band) {
       filteredGigs = gigs.filter((gig) => {
         const filteredPerformers = gig.performers.filter((performers) => {
-          if (filters.musician) {
+          if (filters.musician && performers.confirmed === "true") {
             return filters.musician === performers.musician;
-          } else if (filters.band) {
+          } else if (filters.band && performers.confirmed === "true") {
             return filters.band === performers.band;
           }
         });
