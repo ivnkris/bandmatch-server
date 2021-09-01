@@ -31,7 +31,8 @@ const getBands = async (filters) => {
     .populate("genre")
     .populate("instruments")
     .populate("lookingFor")
-    .limit(5);
+    .limit(5)
+    .sort({ createdAt: -1 });
 
   return bands;
 };
@@ -45,7 +46,8 @@ const getMusicians = async (filters) => {
     .populate("genre")
     .populate("instruments")
     .populate("lookingFor")
-    .limit(5);
+    .limit(5)
+    .sort({ createdAt: -1 });
 
   return musicians;
 };

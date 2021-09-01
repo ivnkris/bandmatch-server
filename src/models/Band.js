@@ -72,7 +72,9 @@ const schema = {
   ],
 };
 
-const userSchema = new Schema(schema);
+const userSchema = new Schema(schema, {
+  timestamps: true,
+});
 
 const Band = model("Band", userSchema);
 
