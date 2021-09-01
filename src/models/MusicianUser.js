@@ -91,7 +91,9 @@ const schema = {
   // ],
 };
 
-const userSchema = new Schema(schema);
+const userSchema = new Schema(schema, {
+  timestamps: true,
+});
 
 userSchema.pre("save", hashPassword);
 
