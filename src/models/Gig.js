@@ -39,11 +39,9 @@ const schema = {
       musician: {
         type: String,
       },
-
       band: {
         type: String,
       },
-
       confirmed: {
         type: String,
         enum: ["true", "false", "pending"],
