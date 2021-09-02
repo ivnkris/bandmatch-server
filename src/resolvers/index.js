@@ -27,6 +27,7 @@ const deleteBand = require("./deleteBand");
 const deleteGig = require("./deleteGig");
 const musicians = require("./musicians");
 const deleteGigRequest = require("./deleteGigRequest");
+const updateBand = require("./updateBand");
 
 const resolvers = {
   Query: {
@@ -61,6 +62,7 @@ const resolvers = {
     deleteBand,
     deleteGig,
     deleteGigRequest,
+    updateBand,
   },
 };
 
