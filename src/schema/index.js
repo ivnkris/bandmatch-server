@@ -277,6 +277,29 @@ const typeDefs = gql`
     musicianId: ID!
   }
 
+  input BandUserInput {
+    id: ID
+    name: String
+    description: String!
+    location: String!
+    genre: [ID]
+    experienceLevel: String!
+    numberOfMembers: Int!
+    instruments: [ID]
+    imageUrl: String!
+    websiteUrl: String
+    soundCloudUrl: String
+    lookingFor: [ID]
+    openToCollaboration: Boolean
+    openToMembers: Boolean
+    musicians: [ID]
+  }
+
+  input updateBandInput {
+    bandInfo: BandUserInput!
+    bandId: ID!
+  }
+
   input updateGigRequestInput {
     id: String
     confirmed: String
@@ -314,6 +337,7 @@ const typeDefs = gql`
     deleteBand(input: deleteBandInput): Band
     deleteGig(input: deleteGigInput): ID
     deleteGigRequest(id: ID!): ID
+    updateBand(input: updateBandInput): Band!
   }
 `;
 
