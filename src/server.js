@@ -17,6 +17,7 @@ const server = new ApolloServer({
   resolvers,
   context,
 });
+
 const startServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
@@ -25,6 +26,10 @@ const startServer = async () => {
 startServer();
 
 app.use(cors());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+}
 
 db.once("open", () => {
   app.listen(PORT, () =>
