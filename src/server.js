@@ -21,15 +21,12 @@ const server = new ApolloServer({
 const startServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
+  console.log("started");
 };
 
 startServer();
 
 app.use(cors());
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
 
 db.once("open", () => {
   app.listen(PORT, () =>
